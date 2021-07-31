@@ -12,10 +12,39 @@ import EUGreenCertificate
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
-	@IBOutlet var nameLabel: UILabel!
+	@IBOutlet var dataLabel: UILabel!
+	@IBOutlet var infoLabel: UILabel!
+	@IBOutlet var viewFinder: UIImageView!
 
 	let captureSession = AVCaptureSession()
 	var previewLayer: AVCaptureVideoPreviewLayer!
+
+	var greenCertificate: EUGreenCertificate? = nil {
+		didSet {
+			guard let greenCertificate = greenCertificate else {
+				DispatchQueue.main.async {
+					self.dataLabel.text = nil
+					self.viewFinder.tintColor = .systemGray
+				}
+				return
+			}
+			DispatchQueue.main.async {
+				self.dataLabel.text = "\(greenCertificate.name.fullName)\n\(greenCertificate.dateOfBirth)"
+				self.viewFinder.tintColor = .systemGreen
+			}
+		}
+	}
+	var errorString: String? = nil {
+		didSet {
+			DispatchQueue.main.async {
+				self.infoLabel.text = self.errorString
+				guard let _ = self.errorString else {
+					return
+				}
+				self.viewFinder.tintColor = .systemRed
+			}
+		}
+	}
 
 	override var prefersStatusBarHidden: Bool {
 		true
@@ -78,11 +107,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
 		navigationController?.setNavigationBarHidden(true, animated: true)
 
+		greenCertificate = nil
+		errorString = nil
+
 		if !captureSession.isRunning {
 			captureSession.startRunning()
 		}
-
-		nameLabel.text = nil
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
@@ -96,7 +126,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 	}
 
 	@IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
-		nameLabel.text = nil
+		greenCertificate = nil
+		errorString = nil
+
 		captureSession.startRunning()
 	}
 
@@ -105,24 +137,25 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 		if let metadataObject = metadataObjects.first {
 			guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {
 				captureSession.startRunning()
+				errorString = "No readable metadata found."
 				return
 			}
 
 			guard let stringValue = readableObject.stringValue else {
 				captureSession.startRunning()
+				errorString = "No string value found."
 				return
 			}
 
 			AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
 
 			switch EUGreenCertificate.decode(stringValue) {
-			case .success(let greenCertificate):
-				DispatchQueue.main.async {
-					self.nameLabel.text = "\(greenCertificate.name.fullName)\n\(greenCertificate.dateOfBirth)"
-				}
+			case .success(let qrCertificate):
+				greenCertificate = qrCertificate
 				captureSession.stopRunning()
 			case .failure(let error):
 				print("Error occurred: \(error.localizedDescription)")
+				errorString = error.localizedDescription
 				captureSession.startRunning()
 			}
 		}
