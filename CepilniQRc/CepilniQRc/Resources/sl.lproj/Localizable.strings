@@ -45,3 +45,6 @@
 "Vaccination data" = "Podatki o cepljenju";
 "expirationDate (?)" = "Datum poteka (?)";
 "issueDate (?)" = "Datum izdaje (?)";
+"Name" = "Ime";
+"Full name" = "Polno ime";
+"Name in passport" = "Ime v potnem listu";

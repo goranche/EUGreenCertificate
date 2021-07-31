@@ -16,6 +16,12 @@
 		5126BD7C26B4C563001D7942 /* EUGreenCertificate in Frameworks */ = {isa = PBXBuildFile; productRef = 5126BD7B26B4C563001D7942 /* EUGreenCertificate */; };
 		5166774826B573B50032BECE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5166774A26B573B50032BECE /* InfoPlist.strings */; };
 		5166774D26B57A170032BECE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5166774C26B57A170032BECE /* InfoViewController.swift */; };
+		5185A24D26B5A0C800481753 /* CertificateSectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185A24C26B5A0C800481753 /* CertificateSectionDataSource.swift */; };
+		5185A24F26B5A22400481753 /* EUGreenCertificateGeneralSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185A24E26B5A22400481753 /* EUGreenCertificateGeneralSection.swift */; };
+		5185A25126B5A3E600481753 /* EUGreenCertificateNameSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185A25026B5A3E600481753 /* EUGreenCertificateNameSection.swift */; };
+		5185A25326B5A50D00481753 /* EUGreenCertificateVaccinationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185A25226B5A50D00481753 /* EUGreenCertificateVaccinationSection.swift */; };
+		5185A25526B5A5A100481753 /* EUGreenCertificateTestSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185A25426B5A5A100481753 /* EUGreenCertificateTestSection.swift */; };
+		5185A25726B5A60200481753 /* EUGreenCertificateRecoverySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185A25626B5A60200481753 /* EUGreenCertificateRecoverySection.swift */; };
 		51C41A6026B5543C00577598 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C41A5F26B5543C00577598 /* DetailViewController.swift */; };
 		51C41A6326B5552D00577598 /* GreenCertificateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C41A6226B5552D00577598 /* GreenCertificateDataSource.swift */; };
 		51C41A6926B56C9500577598 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51C41A6B26B56C9500577598 /* Localizable.strings */; };
@@ -34,6 +40,12 @@
 		5166774B26B573B80032BECE /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5166774C26B57A170032BECE /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		5166774F26B57BE50032BECE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		5185A24C26B5A0C800481753 /* CertificateSectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateSectionDataSource.swift; sourceTree = "<group>"; };
+		5185A24E26B5A22400481753 /* EUGreenCertificateGeneralSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUGreenCertificateGeneralSection.swift; sourceTree = "<group>"; };
+		5185A25026B5A3E600481753 /* EUGreenCertificateNameSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUGreenCertificateNameSection.swift; sourceTree = "<group>"; };
+		5185A25226B5A50D00481753 /* EUGreenCertificateVaccinationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUGreenCertificateVaccinationSection.swift; sourceTree = "<group>"; };
+		5185A25426B5A5A100481753 /* EUGreenCertificateTestSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUGreenCertificateTestSection.swift; sourceTree = "<group>"; };
+		5185A25626B5A60200481753 /* EUGreenCertificateRecoverySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUGreenCertificateRecoverySection.swift; sourceTree = "<group>"; };
 		51C41A5F26B5543C00577598 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		51C41A6226B5552D00577598 /* GreenCertificateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenCertificateDataSource.swift; sourceTree = "<group>"; };
 		51C41A6526B56B9F00577598 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -117,9 +129,23 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		5185A25826B5A68800481753 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				5185A24E26B5A22400481753 /* EUGreenCertificateGeneralSection.swift */,
+				5185A25026B5A3E600481753 /* EUGreenCertificateNameSection.swift */,
+				5185A25626B5A60200481753 /* EUGreenCertificateRecoverySection.swift */,
+				5185A25426B5A5A100481753 /* EUGreenCertificateTestSection.swift */,
+				5185A25226B5A50D00481753 /* EUGreenCertificateVaccinationSection.swift */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
 		51C41A6126B554C400577598 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
+				5185A25826B5A68800481753 /* Sections */,
+				5185A24C26B5A0C800481753 /* CertificateSectionDataSource.swift */,
 				51C41A6226B5552D00577598 /* GreenCertificateDataSource.swift */,
 			);
 			path = DataSources;
@@ -205,10 +231,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5185A25526B5A5A100481753 /* EUGreenCertificateTestSection.swift in Sources */,
+				5185A24F26B5A22400481753 /* EUGreenCertificateGeneralSection.swift in Sources */,
 				5126BD7526B4C1C6001D7942 /* AppDelegate.swift in Sources */,
+				5185A25126B5A3E600481753 /* EUGreenCertificateNameSection.swift in Sources */,
+				5185A25726B5A60200481753 /* EUGreenCertificateRecoverySection.swift in Sources */,
 				51C41A6326B5552D00577598 /* GreenCertificateDataSource.swift in Sources */,
 				5126BD7926B4C21D001D7942 /* ScannerViewController.swift in Sources */,
+				5185A25326B5A50D00481753 /* EUGreenCertificateVaccinationSection.swift in Sources */,
 				5126BD7626B4C1C6001D7942 /* SceneDelegate.swift in Sources */,
+				5185A24D26B5A0C800481753 /* CertificateSectionDataSource.swift in Sources */,
 				5166774D26B57A170032BECE /* InfoViewController.swift in Sources */,
 				51C41A6026B5543C00577598 /* DetailViewController.swift in Sources */,
 			);

@@ -16,248 +16,50 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 
 	private let dateFormatter = DateFormatter()
 
+	private let sectionSources: [CertificateSectionDataSource]
+
 	init(using greenCertificate: EUGreenCertificate, andReuseId reuseIdentifier: String) {
 		self.greenCertificate = greenCertificate
 		self.reuseIdentifier = reuseIdentifier
 
 		dateFormatter.dateStyle = .medium
 		dateFormatter.timeStyle = .none
+
+		var sections: [CertificateSectionDataSource] = [
+			EUGreenCertificateGeneralSection(using: greenCertificate, andReuseId: reuseIdentifier),
+			EUGreenCertificateNameSection(using: greenCertificate, andReuseId: reuseIdentifier)
+		]
+
+		switch greenCertificate.certificationType {
+		case .vaccination:
+			sections.append(EUGreenCertificateVaccinationSection(using: greenCertificate, andReuseId: reuseIdentifier))
+		case .test:
+			sections.append(EUGreenCertificateTestSection(using: greenCertificate, andReuseId: reuseIdentifier))
+		case .recovery:
+			sections.append(EUGreenCertificateRecoverySection(using: greenCertificate, andReuseId: reuseIdentifier))
+		default:
+			break
+		}
+
+		sectionSources = sections
 	}
 
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return greenCertificate.certificationType == .unknown ? 0 : 3
+		sectionSources.count
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		switch section {
-		case 0:
-			return 6
-		case 1:
-			return 4
-		case 2:
-			switch greenCertificate.certificationType {
-			case .vaccination:
-				return 10
-			case .test:
-				return 10
-			case .recovery:
-				return 7
-			default:
-				return 0
-			}
-		default:
-			return 0
-		}
+		section < sectionSources.count ? sectionSources[section].numberOfRows : 0
 	}
 
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		switch section {
-		case 0:
-			return NSLocalizedString("General data", comment: "")
-		case 1:
-			return "Name"
-		case 2:
-			switch greenCertificate.certificationType {
-			case .vaccination:
-				return NSLocalizedString("Vaccination data", comment: "")
-			case .test:
-				return NSLocalizedString("Test data", comment: "")
-			case .recovery:
-				return NSLocalizedString("Recovery data", comment: "")
-			default:
-				return NSLocalizedString("Uknown certification", comment: "")
-			}
-		default:
-			return nil
-		}
+		section < sectionSources.count ? sectionSources[section].title : nil
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-
-		switch indexPath.section {
-		case 0:
-			prepareGeneral(cell, at: indexPath.row)
-		case 1:
-			prepareName(cell, at: indexPath.row)
-		case 2:
-			switch greenCertificate.certificationType {
-			case .vaccination:
-				prepareVaccination(cell, at: indexPath.row)
-			case .test:
-				prepareTest(cell, at: indexPath.row)
-			case .recovery:
-				prepareRecovery(cell, at: indexPath.row)
-			default:
-				break
-			}
-		default:
-			break
+		guard indexPath.section < sectionSources.count else {
+			return tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
 		}
-
-		return cell
-	}
-
-	private func prepareGeneral(_ cell: UITableViewCell, at row: Int) {
-		switch row {
-		case 0:
-			cell.textLabel?.text = NSLocalizedString("Schema version", comment: "")
-			cell.detailTextLabel?.text = greenCertificate.version
-		case 1:
-			cell.textLabel?.text = NSLocalizedString("Key ID Data", comment: "")
-			cell.detailTextLabel?.text = greenCertificate.keyIdData.hexEncodedString()
-		case 2:
-			cell.textLabel?.text = NSLocalizedString("Issuer Country", comment: "")
-			cell.detailTextLabel?.text = greenCertificate.issuerCountry
-		case 3:
-			cell.textLabel?.text = NSLocalizedString("Date of birth", comment: "")
-			cell.detailTextLabel?.text = greenCertificate.dateOfBirth
-		case 4:
-			cell.textLabel?.text = NSLocalizedString("issueDate (?)", comment: "")
-			cell.detailTextLabel?.text = dateFormatter.string(from: greenCertificate.issueDate)
-		case 5:
-			cell.textLabel?.text = NSLocalizedString("expirationDate (?)", comment: "")
-			cell.detailTextLabel?.text = dateFormatter.string(from: greenCertificate.expirationDate)
-		default:
-			break
-		}
-	}
-
-	private func prepareName(_ cell: UITableViewCell, at row: Int) {
-		switch row {
-		case 0:
-			cell.textLabel?.text = NSLocalizedString("Forename(s)", comment: "")
-			cell.detailTextLabel?.text = greenCertificate.name.foreName
-		case 1:
-			cell.textLabel?.text = NSLocalizedString("Standardised forename(s)", comment: "")
-			cell.detailTextLabel?.text = greenCertificate.name.foreNameStandard
-		case 2:
-			cell.textLabel?.text = NSLocalizedString("Surname(s)", comment: "")
-			cell.detailTextLabel?.text = greenCertificate.name.surName
-		case 3:
-			cell.textLabel?.text = NSLocalizedString("Standardised surname(s)", comment: "")
-			cell.detailTextLabel?.text = greenCertificate.name.surNameStandard
-		default:
-			break
-		}
-	}
-
-	private func prepareVaccination(_ cell: UITableViewCell, at row: Int) {
-		guard let vaccination = greenCertificate.vaccination, row < 10 else {
-			return
-		}
-		switch row {
-		case 0:
-			cell.textLabel?.text = NSLocalizedString("Unique certificate identifier", comment: "")
-			cell.detailTextLabel?.text = vaccination.ci
-		case 1:
-			cell.textLabel?.text = NSLocalizedString("State or third country of administration", comment: "")
-			cell.detailTextLabel?.text = vaccination.co
-		case 2:
-			cell.textLabel?.text = NSLocalizedString("Number in a series of doses", comment: "")
-			cell.detailTextLabel?.text = String(vaccination.dn)
-		case 3:
-			cell.textLabel?.text = NSLocalizedString("Date of vaccination", comment: "")
-			cell.detailTextLabel?.text = vaccination.dt
-		case 4:
-			cell.textLabel?.text = NSLocalizedString("Certificate issuer", comment: "")
-			cell.detailTextLabel?.text = vaccination.is
-		case 5:
-			cell.textLabel?.text = NSLocalizedString("COVID-19 vaccine manufacturer", comment: "")
-			cell.detailTextLabel?.text = vaccination.ma
-		case 6:
-			cell.textLabel?.text = NSLocalizedString("COVID-19 vaccine product", comment: "")
-			cell.detailTextLabel?.text = vaccination.mp
-		case 7:
-			cell.textLabel?.text = NSLocalizedString("Number of doses in series", comment: "")
-			cell.detailTextLabel?.text = String(vaccination.sd)
-		case 8:
-			cell.textLabel?.text = NSLocalizedString("Disease or agent targeted", comment: "")
-			cell.detailTextLabel?.text = vaccination.tg
-		case 9:
-			cell.textLabel?.text = NSLocalizedString("COVID-19 vaccine or prophylaxis", comment: "")
-			cell.detailTextLabel?.text = vaccination.vp
-		default:
-			break
-		}
-	}
-
-	private func prepareTest(_ cell: UITableViewCell, at row: Int) {
-		guard let test = greenCertificate.test, row < 10 else {
-			return
-		}
-		switch row {
-		case 0:
-			cell.textLabel?.text = NSLocalizedString("Disease or agent targeted", comment: "")
-			cell.detailTextLabel?.text = test.tg
-		case 1:
-			cell.textLabel?.text = NSLocalizedString("The type of test", comment: "")
-			cell.detailTextLabel?.text = test.tt
-		case 2:
-			cell.textLabel?.text = NSLocalizedString("Test name", comment: "")
-			cell.detailTextLabel?.text = test.nm ?? NSLocalizedString("<empty>", comment: "")
-		case 3:
-			cell.textLabel?.text = NSLocalizedString("Test device identifier", comment: "")
-			cell.detailTextLabel?.text = test.ma ?? NSLocalizedString("<empty>", comment: "")
-		case 4:
-			cell.textLabel?.text = NSLocalizedString("Date and time of the test sample collection", comment: "")
-			cell.detailTextLabel?.text = test.sc
-		case 5:
-			cell.textLabel?.text = NSLocalizedString("Result of the test", comment: "")
-			cell.detailTextLabel?.text = test.tr
-		case 6:
-			cell.textLabel?.text = NSLocalizedString("Testing centre or facility", comment: "")
-			cell.detailTextLabel?.text = test.tc ?? NSLocalizedString("<empty>", comment: "")
-		case 7:
-			cell.textLabel?.text = NSLocalizedString("State or third country of testing", comment: "")
-			cell.detailTextLabel?.text = test.co
-		case 8:
-			cell.textLabel?.text = NSLocalizedString("Certificate issuer", comment: "")
-			cell.detailTextLabel?.text = test.is
-		case 9:
-			cell.textLabel?.text = NSLocalizedString("Unique certificate identifier", comment: "")
-			cell.detailTextLabel?.text = test.ci
-		default:
-			break
-		}
-	}
-
-	private func prepareRecovery(_ cell: UITableViewCell, at row: Int) {
-		guard let recovery = greenCertificate.recovery, row < 7 else {
-			return
-		}
-		switch row {
-		case 0:
-			cell.textLabel?.text = NSLocalizedString("Disease or agent from which recovered", comment: "")
-			cell.detailTextLabel?.text = recovery.tg
-		case 1:
-			cell.textLabel?.text = NSLocalizedString("Date of holder’s first positive test", comment: "")
-			cell.detailTextLabel?.text = recovery.fr
-		case 2:
-			cell.textLabel?.text = NSLocalizedString("State or third country of testing", comment: "")
-			cell.detailTextLabel?.text = recovery.co
-		case 3:
-			cell.textLabel?.text = NSLocalizedString("Certificate issuer", comment: "")
-			cell.detailTextLabel?.text = recovery.is
-		case 4:
-			cell.textLabel?.text = NSLocalizedString("Certificate valid from", comment: "")
-			cell.detailTextLabel?.text = recovery.df
-		case 5:
-			cell.textLabel?.text = NSLocalizedString("Certificate valid until", comment: "")
-			cell.detailTextLabel?.text = recovery.du
-		case 6:
-			cell.textLabel?.text = NSLocalizedString("Unique certificate identifier", comment: "")
-			cell.detailTextLabel?.text = recovery.ci
-		default:
-			break
-		}
-	}
-}
-
-fileprivate extension Data {
-	func hexEncodedString() -> String {
-		return map {
-			String(format: "%02hhx", $0)
-		}.joined(separator: " ")
+		return sectionSources[indexPath.section].tableView(tableView, cellForRowAt: indexPath)
 	}
 }
