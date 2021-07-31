@@ -7,3 +7,4 @@
 */
 "CFBundleDisplayName" = "Green QR";
 "CFBundleName" = "Green QR";
+"NSCameraUsageDescription" = "The app needs access to the camera to scan for QR codes.";

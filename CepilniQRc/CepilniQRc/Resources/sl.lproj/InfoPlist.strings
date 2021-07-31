@@ -7,3 +7,4 @@
 */
 "CFBundleDisplayName" = "Zeleni QR";
 "CFBundleName" = "Zeleni QR";
+"NSCameraUsageDescription" = "Applikacija potrebuje dostop do kamere za slikanje QR kode.";
