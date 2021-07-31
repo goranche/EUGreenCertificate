@@ -16,19 +16,22 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 	@IBOutlet var infoLabel: UILabel!
 	@IBOutlet var viewFinder: UIImageView!
 
+	@IBOutlet var detailButton: UIButton!
+
 	let captureSession = AVCaptureSession()
 	var previewLayer: AVCaptureVideoPreviewLayer!
 
 	var greenCertificate: EUGreenCertificate? = nil {
 		didSet {
-			guard let greenCertificate = greenCertificate else {
-				DispatchQueue.main.async {
+			DispatchQueue.main.async {
+				self.detailButton.isEnabled = self.greenCertificate != nil
+
+				guard let greenCertificate = self.greenCertificate else {
 					self.dataLabel.text = nil
 					self.viewFinder.tintColor = .systemGray
+					return
 				}
-				return
-			}
-			DispatchQueue.main.async {
+
 				self.dataLabel.text = "\(greenCertificate.name.fullName)\n\(greenCertificate.dateOfBirth)"
 				self.viewFinder.tintColor = .systemGreen
 			}
@@ -130,6 +133,21 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 		errorString = nil
 
 		captureSession.startRunning()
+	}
+
+	@IBAction func unwindToScanner(_ segue: UIStoryboardSegue) {
+		// Leaving empty, the function is here just so we can unwind in the storyboard
+	}
+
+	override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+		identifier == "showDetails" ? greenCertificate != nil : true
+	}
+
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let greenCertificate = greenCertificate, let destination = segue.destination as? DetailViewController else {
+			return
+		}
+		destination.greenCertificate = greenCertificate
 	}
 
 	func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {

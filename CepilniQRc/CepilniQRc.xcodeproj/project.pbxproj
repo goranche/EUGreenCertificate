@@ -14,6 +14,8 @@
 		5126BD7626B4C1C6001D7942 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5126BD7426B4C1C6001D7942 /* SceneDelegate.swift */; };
 		5126BD7926B4C21D001D7942 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5126BD7826B4C21D001D7942 /* ScannerViewController.swift */; };
 		5126BD7C26B4C563001D7942 /* EUGreenCertificate in Frameworks */ = {isa = PBXBuildFile; productRef = 5126BD7B26B4C563001D7942 /* EUGreenCertificate */; };
+		51C41A6026B5543C00577598 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C41A5F26B5543C00577598 /* DetailViewController.swift */; };
+		51C41A6326B5552D00577598 /* GreenCertificateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C41A6226B5552D00577598 /* GreenCertificateDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		5126BD7326B4C1C5001D7942 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5126BD7426B4C1C6001D7942 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5126BD7826B4C21D001D7942 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		51C41A5F26B5543C00577598 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		51C41A6226B5552D00577598 /* GreenCertificateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenCertificateDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				5126BD6726B4C105001D7942 /* _Info.plist */,
+				51C41A6126B554C400577598 /* DataSources */,
 				5126BD7126B4C196001D7942 /* LifeCycle */,
 				5126BD7226B4C19D001D7942 /* Resources */,
 				5126BD7726B4C208001D7942 /* ViewControllers */,
@@ -82,9 +87,9 @@
 		5126BD7226B4C19D001D7942 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5126BD5F26B4C104001D7942 /* Main.storyboard */,
 				5126BD6226B4C105001D7942 /* Assets.xcassets */,
 				5126BD6426B4C105001D7942 /* LaunchScreen.storyboard */,
+				5126BD5F26B4C104001D7942 /* Main.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -92,9 +97,18 @@
 		5126BD7726B4C208001D7942 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				51C41A5F26B5543C00577598 /* DetailViewController.swift */,
 				5126BD7826B4C21D001D7942 /* ScannerViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		51C41A6126B554C400577598 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				51C41A6226B5552D00577598 /* GreenCertificateDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,8 +189,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5126BD7526B4C1C6001D7942 /* AppDelegate.swift in Sources */,
+				51C41A6326B5552D00577598 /* GreenCertificateDataSource.swift in Sources */,
 				5126BD7926B4C21D001D7942 /* ScannerViewController.swift in Sources */,
 				5126BD7626B4C1C6001D7942 /* SceneDelegate.swift in Sources */,
+				51C41A6026B5543C00577598 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
