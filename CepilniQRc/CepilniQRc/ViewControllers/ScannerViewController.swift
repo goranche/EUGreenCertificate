@@ -155,13 +155,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 		if let metadataObject = metadataObjects.first {
 			guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {
 				captureSession.startRunning()
-				errorString = "No readable metadata found."
+				errorString = NSLocalizedString("No readable metadata found.", comment: "")
 				return
 			}
 
 			guard let stringValue = readableObject.stringValue else {
 				captureSession.startRunning()
-				errorString = "No string value found."
+				errorString = NSLocalizedString("No string value found.", comment: "")
 				return
 			}
 

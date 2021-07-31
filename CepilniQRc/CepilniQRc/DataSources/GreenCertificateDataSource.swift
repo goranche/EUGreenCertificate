@@ -53,19 +53,19 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		switch section {
 		case 0:
-			return "General data"
+			return NSLocalizedString("General data", comment: "")
 		case 1:
 			return "Name"
 		case 2:
 			switch greenCertificate.certificationType {
 			case .vaccination:
-				return "Vaccination data"
+				return NSLocalizedString("Vaccination data", comment: "")
 			case .test:
-				return "Test data"
+				return NSLocalizedString("Test data", comment: "")
 			case .recovery:
-				return "Recovery data"
+				return NSLocalizedString("Recovery data", comment: "")
 			default:
-				return "Uknown certification"
+				return NSLocalizedString("Uknown certification", comment: "")
 			}
 		default:
 			return nil
@@ -101,22 +101,22 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 	private func prepareGeneral(_ cell: UITableViewCell, at row: Int) {
 		switch row {
 		case 0:
-			cell.textLabel?.text = "Schema version"
+			cell.textLabel?.text = NSLocalizedString("Schema version", comment: "")
 			cell.detailTextLabel?.text = greenCertificate.version
 		case 1:
-			cell.textLabel?.text = "Key ID Data"
+			cell.textLabel?.text = NSLocalizedString("Key ID Data", comment: "")
 			cell.detailTextLabel?.text = greenCertificate.keyIdData.hexEncodedString()
 		case 2:
-			cell.textLabel?.text = "Issuer Country"
+			cell.textLabel?.text = NSLocalizedString("Issuer Country", comment: "")
 			cell.detailTextLabel?.text = greenCertificate.issuerCountry
 		case 3:
-			cell.textLabel?.text = "Date of birth"
+			cell.textLabel?.text = NSLocalizedString("Date of birth", comment: "")
 			cell.detailTextLabel?.text = greenCertificate.dateOfBirth
 		case 4:
-			cell.textLabel?.text = "issueDate (?)"
+			cell.textLabel?.text = NSLocalizedString("issueDate (?)", comment: "")
 			cell.detailTextLabel?.text = dateFormatter.string(from: greenCertificate.issueDate)
 		case 5:
-			cell.textLabel?.text = "expirationDate (?)"
+			cell.textLabel?.text = NSLocalizedString("expirationDate (?)", comment: "")
 			cell.detailTextLabel?.text = dateFormatter.string(from: greenCertificate.expirationDate)
 		default:
 			break
@@ -126,16 +126,16 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 	private func prepareName(_ cell: UITableViewCell, at row: Int) {
 		switch row {
 		case 0:
-			cell.textLabel?.text = "Forename(s)"
+			cell.textLabel?.text = NSLocalizedString("Forename(s)", comment: "")
 			cell.detailTextLabel?.text = greenCertificate.name.foreName
 		case 1:
-			cell.textLabel?.text = "Standardised forename(s)"
+			cell.textLabel?.text = NSLocalizedString("Standardised forename(s)", comment: "")
 			cell.detailTextLabel?.text = greenCertificate.name.foreNameStandard
 		case 2:
-			cell.textLabel?.text = "Surname(s)"
+			cell.textLabel?.text = NSLocalizedString("Surname(s)", comment: "")
 			cell.detailTextLabel?.text = greenCertificate.name.surName
 		case 3:
-			cell.textLabel?.text = "Standardised surname(s)"
+			cell.textLabel?.text = NSLocalizedString("Standardised surname(s)", comment: "")
 			cell.detailTextLabel?.text = greenCertificate.name.surNameStandard
 		default:
 			break
@@ -148,34 +148,34 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 		}
 		switch row {
 		case 0:
-			cell.textLabel?.text = "Unique certificate identifier"
+			cell.textLabel?.text = NSLocalizedString("Unique certificate identifier", comment: "")
 			cell.detailTextLabel?.text = vaccination.ci
 		case 1:
-			cell.textLabel?.text = "State or third country of administration"
+			cell.textLabel?.text = NSLocalizedString("State or third country of administration", comment: "")
 			cell.detailTextLabel?.text = vaccination.co
 		case 2:
-			cell.textLabel?.text = "Number in a series of doses"
+			cell.textLabel?.text = NSLocalizedString("Number in a series of doses", comment: "")
 			cell.detailTextLabel?.text = String(vaccination.dn)
 		case 3:
-			cell.textLabel?.text = "Date of vaccination"
+			cell.textLabel?.text = NSLocalizedString("Date of vaccination", comment: "")
 			cell.detailTextLabel?.text = vaccination.dt
 		case 4:
-			cell.textLabel?.text = "Certificate issuer"
+			cell.textLabel?.text = NSLocalizedString("Certificate issuer", comment: "")
 			cell.detailTextLabel?.text = vaccination.is
 		case 5:
-			cell.textLabel?.text = "COVID-19 vaccine manufacturer"
+			cell.textLabel?.text = NSLocalizedString("COVID-19 vaccine manufacturer", comment: "")
 			cell.detailTextLabel?.text = vaccination.ma
 		case 6:
-			cell.textLabel?.text = "COVID-19 vaccine product"
+			cell.textLabel?.text = NSLocalizedString("COVID-19 vaccine product", comment: "")
 			cell.detailTextLabel?.text = vaccination.mp
 		case 7:
-			cell.textLabel?.text = "Number of doses in series"
+			cell.textLabel?.text = NSLocalizedString("Number of doses in series", comment: "")
 			cell.detailTextLabel?.text = String(vaccination.sd)
 		case 8:
-			cell.textLabel?.text = "Disease or agent targeted"
+			cell.textLabel?.text = NSLocalizedString("Disease or agent targeted", comment: "")
 			cell.detailTextLabel?.text = vaccination.tg
 		case 9:
-			cell.textLabel?.text = "COVID-19 vaccine or prophylaxis"
+			cell.textLabel?.text = NSLocalizedString("COVID-19 vaccine or prophylaxis", comment: "")
 			cell.detailTextLabel?.text = vaccination.vp
 		default:
 			break
@@ -188,34 +188,34 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 		}
 		switch row {
 		case 0:
-			cell.textLabel?.text = "Disease or agent targeted"
+			cell.textLabel?.text = NSLocalizedString("Disease or agent targeted", comment: "")
 			cell.detailTextLabel?.text = test.tg
 		case 1:
-			cell.textLabel?.text = "The type of test"
+			cell.textLabel?.text = NSLocalizedString("The type of test", comment: "")
 			cell.detailTextLabel?.text = test.tt
 		case 2:
-			cell.textLabel?.text = "Test name"
-			cell.detailTextLabel?.text = test.nm ?? "<empty>"
+			cell.textLabel?.text = NSLocalizedString("Test name", comment: "")
+			cell.detailTextLabel?.text = test.nm ?? NSLocalizedString("<empty>", comment: "")
 		case 3:
-			cell.textLabel?.text = "Test device identifier"
-			cell.detailTextLabel?.text = test.ma ?? "<empty>"
+			cell.textLabel?.text = NSLocalizedString("Test device identifier", comment: "")
+			cell.detailTextLabel?.text = test.ma ?? NSLocalizedString("<empty>", comment: "")
 		case 4:
-			cell.textLabel?.text = "Date and time of the test sample collection"
+			cell.textLabel?.text = NSLocalizedString("Date and time of the test sample collection", comment: "")
 			cell.detailTextLabel?.text = test.sc
 		case 5:
-			cell.textLabel?.text = "Result of the test"
+			cell.textLabel?.text = NSLocalizedString("Result of the test", comment: "")
 			cell.detailTextLabel?.text = test.tr
 		case 6:
-			cell.textLabel?.text = "Testing centre or facility"
-			cell.detailTextLabel?.text = test.tc ?? "<empty>"
+			cell.textLabel?.text = NSLocalizedString("Testing centre or facility", comment: "")
+			cell.detailTextLabel?.text = test.tc ?? NSLocalizedString("<empty>", comment: "")
 		case 7:
-			cell.textLabel?.text = "State or third country of testing"
+			cell.textLabel?.text = NSLocalizedString("State or third country of testing", comment: "")
 			cell.detailTextLabel?.text = test.co
 		case 8:
-			cell.textLabel?.text = "Certificate issuer"
+			cell.textLabel?.text = NSLocalizedString("Certificate issuer", comment: "")
 			cell.detailTextLabel?.text = test.is
 		case 9:
-			cell.textLabel?.text = "Unique certificate identifier"
+			cell.textLabel?.text = NSLocalizedString("Unique certificate identifier", comment: "")
 			cell.detailTextLabel?.text = test.ci
 		default:
 			break
@@ -228,25 +228,25 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 		}
 		switch row {
 		case 0:
-			cell.textLabel?.text = "Disease or agent from which recovered"
+			cell.textLabel?.text = NSLocalizedString("Disease or agent from which recovered", comment: "")
 			cell.detailTextLabel?.text = recovery.tg
 		case 1:
-			cell.textLabel?.text = "Date of holder’s first positive test"
+			cell.textLabel?.text = NSLocalizedString("Date of holder’s first positive test", comment: "")
 			cell.detailTextLabel?.text = recovery.fr
 		case 2:
-			cell.textLabel?.text = "State or third country of testing"
+			cell.textLabel?.text = NSLocalizedString("State or third country of testing", comment: "")
 			cell.detailTextLabel?.text = recovery.co
 		case 3:
-			cell.textLabel?.text = "Certificate issuer"
+			cell.textLabel?.text = NSLocalizedString("Certificate issuer", comment: "")
 			cell.detailTextLabel?.text = recovery.is
 		case 4:
-			cell.textLabel?.text = "Certificate valid from"
+			cell.textLabel?.text = NSLocalizedString("Certificate valid from", comment: "")
 			cell.detailTextLabel?.text = recovery.df
 		case 5:
-			cell.textLabel?.text = "Certificate valid until"
+			cell.textLabel?.text = NSLocalizedString("Certificate valid until", comment: "")
 			cell.detailTextLabel?.text = recovery.du
 		case 6:
-			cell.textLabel?.text = "Unique certificate identifier"
+			cell.textLabel?.text = NSLocalizedString("Unique certificate identifier", comment: "")
 			cell.detailTextLabel?.text = recovery.ci
 		default:
 			break
@@ -258,6 +258,6 @@ fileprivate extension Data {
 	func hexEncodedString() -> String {
 		return map {
 			String(format: "%02hhx", $0)
-		}.joined()
+		}.joined(separator: " ")
 	}
 }

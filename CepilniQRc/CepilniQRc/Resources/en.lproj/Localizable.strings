@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  CepilniQRc
+
+  Created by Goran Blažič on 31/07/2021.
+  Copyright © 2021 Goran Blažič s.p. All rights reserved.
+*/
+
+"<empty>" = "<empty>";
+"COVID-19 vaccine manufacturer" = "COVID-19 vaccine manufacturer";
+"COVID-19 vaccine or prophylaxis" = "COVID-19 vaccine or prophylaxis";
+"COVID-19 vaccine product" = "COVID-19 vaccine product";
+"Certificate issuer" = "Certificate issuer";
+"Certificate valid from" = "Certificate valid from";
+"Certificate valid until" = "Certificate valid until";
+"Date and time of the test sample collection" = "Date and time of the test sample collection";
+"Date of birth" = "Date of birth";
+"Date of holder’s first positive test" = "Date of holder’s first positive test";
+"Date of vaccination" = "Date of vaccination";
+"Disease or agent from which recovered" = "Disease or agent from which recovered";
+"Disease or agent targeted" = "Disease or agent targeted";
+"Forename(s)" = "Forename(s)";
+"General data" = "General data";
+"Issuer Country" = "Issuer Country";
+"Key ID Data" = "Key ID Data";
+"No readable metadata found." = "No readable metadata found.";
+"No string value found." = "No string value found.";
+"Number in a series of doses" = "Number in a series of doses";
+"Number of doses in series" = "Number of doses in series";
+"Recovery data" = "Recovery data";
+"Result of the test" = "Result of the test";
+"Schema version" = "Schema version";
+"Standardised forename(s)" = "Standardised forename(s)";
+"Standardised surname(s)" = "Standardised surname(s)";
+"State or third country of administration" = "State or third country of administration";
+"State or third country of testing" = "State or third country of testing";
+"Surname(s)" = "Surname(s)";
+"Test data" = "Test data";
+"Test device identifier" = "Test device identifier";
+"Test name" = "Test name";
+"Testing centre or facility" = "Testing centre or facility";
+"The type of test" = "The type of test";
+"Uknown certification" = "Uknown certification";
+"Unique certificate identifier" = "Unique certificate identifier";
+"Vaccination data" = "Vaccination data";
+"expirationDate (?)" = "Expiration date (?)";
+"issueDate (?)" = "Issue date (?)";

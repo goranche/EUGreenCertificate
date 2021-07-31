@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  CepilniQRc
+
+  Created by Goran Blažič on 31/07/2021.
+  Copyright © 2021 Goran Blažič s.p. All rights reserved.
+*/
+
+"<empty>" = "<prazno>";
+"COVID-19 vaccine manufacturer" = "Izdelovalec COVID-19 cepiva";
+"COVID-19 vaccine or prophylaxis" = "COVID-19 cepivo ali profilaksa";
+"COVID-19 vaccine product" = "COVID-19 cepivo";
+"Certificate issuer" = "Izdajatelj Cerifikata";
+"Certificate valid from" = "Certifikat veljaven od";
+"Certificate valid until" = "Certifikat veljaven do";
+"Date and time of the test sample collection" = "Datum in čas odvzema brisa";
+"Date of birth" = "Datum rojstva";
+"Date of holder’s first positive test" = "Datum prvega pozitivnega testa";
+"Date of vaccination" = "Datum zadnjega cepljenja";
+"Disease or agent from which recovered" = "Bolezen ali virus katerega je oseba prebolela";
+"Disease or agent targeted" = "Bolezen ali virus";
+"Forename(s)" = "Ime";
+"General data" = "Splošni podatki";
+"Issuer Country" = "Država izdajatelja";
+"Key ID Data" = "Podatki ključa";
+"No readable metadata found." = "Ni uporabnih meta podatkov.";
+"No string value found." = "Ni uporabnih podatkov.";
+"Number in a series of doses" = "Zaporedna doza v seriji";
+"Number of doses in series" = "Število doz v seriji";
+"Recovery data" = "Podatki o prebolelosti";
+"Result of the test" = "Rezultati testiranja";
+"Schema version" = "Verzija zapisa podatkov";
+"Standardised forename(s)" = "Standardizirano ime";
+"Standardised surname(s)" = "Standardiziran priimek";
+"State or third country of administration" = "Država cepljenja";
+"State or third country of testing" = "Država testiranja";
+"Surname(s)" = "Priimek";
+"Test data" = "Podatki o testiranju";
+"Test device identifier" = "Oznaka naprave za testiranje";
+"Test name" = "Ime testa";
+"Testing centre or facility" = "Testni center";
+"The type of test" = "Vrsta testa";
+"Uknown certification" = "Neznana certifikacija";
+"Unique certificate identifier" = "Enolična oznaka certifikata";
+"Vaccination data" = "Podatki o cepljenju";
+"expirationDate (?)" = "Datum poteka (?)";
+"issueDate (?)" = "Datum izdaje (?)";

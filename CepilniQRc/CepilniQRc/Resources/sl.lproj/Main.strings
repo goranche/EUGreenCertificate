@@ -1,0 +1,21 @@
+
+/* Class = "UINavigationItem"; title = "About the app"; ObjectID = "EiD-X2-2VM"; */
+"EiD-X2-2VM.title" = "O Applikaciji";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Nkt-JW-rZ0"; */
+"Nkt-JW-rZ0.title" = "Item";
+
+/* Class = "UINavigationItem"; title = "QR Details"; ObjectID = "SBp-r7-Gyu"; */
+"SBp-r7-Gyu.title" = "QR Podrobnosti";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "aKR-iF-wnz"; */
+"aKR-iF-wnz.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Some message"; ObjectID = "cRF-Qn-dxA"; */
+"cRF-Qn-dxA.text" = "Neko sporočilo";
+
+/* Class = "UILabel"; text = "Given name Family name"; ObjectID = "cgb-y4-7yb"; */
+"cgb-y4-7yb.text" = "Dano Ime Priimek";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "vO9-mp-ask"; */
+"vO9-mp-ask.text" = "Naslov";
