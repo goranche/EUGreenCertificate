@@ -29,7 +29,6 @@
 		5126BD7826B4C21D001D7942 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		51C41A5F26B5543C00577598 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		51C41A6226B5552D00577598 /* GreenCertificateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenCertificateDataSource.swift; sourceTree = "<group>"; };
-		51C41A6426B5673400577598 /* EUGreenCertificate */ = {isa = PBXFileReference; lastKnownFileType = folder; name = EUGreenCertificate; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +46,6 @@
 		5126BD4D26B4C104001D7942 = {
 			isa = PBXGroup;
 			children = (
-				51C41A6426B5673400577598 /* EUGreenCertificate */,
 				5126BD5826B4C104001D7942 /* CepilniQRc */,
 				5126BD5726B4C104001D7942 /* Products */,
 			);
