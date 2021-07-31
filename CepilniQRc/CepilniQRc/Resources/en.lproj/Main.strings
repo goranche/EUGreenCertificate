@@ -1,27 +1,27 @@
 
 /* Class = "UILabel"; text = "EU Green Certificate Scanner"; ObjectID = "Dbd-tV-MVF"; */
-"Dbd-tV-MVF.text" = "Čitalnik Zelenega EU Certifikata";
+"Dbd-tV-MVF.text" = "EU Green Certificate Scanner";
 
 /* Class = "UINavigationItem"; title = "About the app"; ObjectID = "EiD-X2-2VM"; */
-"EiD-X2-2VM.title" = "O Applikaciji";
+"EiD-X2-2VM.title" = "About the app";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Nkt-JW-rZ0"; */
 "Nkt-JW-rZ0.title" = "Item";
 
 /* Class = "UINavigationItem"; title = "QR Details"; ObjectID = "SBp-r7-Gyu"; */
-"SBp-r7-Gyu.title" = "QR Podrobnosti";
+"SBp-r7-Gyu.title" = "QR Details";
 
 /* Class = "UILabel"; text = "Green QR"; ObjectID = "XJB-la-VcV"; */
-"XJB-la-VcV.text" = "Zeleni QR";
+"XJB-la-VcV.text" = "Green QR";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "aKR-iF-wnz"; */
 "aKR-iF-wnz.text" = "Subtitle";
 
 /* Class = "UILabel"; text = "Some message"; ObjectID = "cRF-Qn-dxA"; */
-"cRF-Qn-dxA.text" = "Neko sporočilo";
+"cRF-Qn-dxA.text" = "Some message";
 
 /* Class = "UILabel"; text = "Given name Family name"; ObjectID = "cgb-y4-7yb"; */
-"cgb-y4-7yb.text" = "Dano Ime Priimek";
+"cgb-y4-7yb.text" = "Given name Family name";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "vO9-mp-ask"; */
-"vO9-mp-ask.text" = "Naslov";
+"vO9-mp-ask.text" = "Title";

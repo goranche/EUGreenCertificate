@@ -33,7 +33,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 				}
 
 				self.dataLabel.text = "\(greenCertificate.name.fullName)\n\(greenCertificate.dateOfBirth)"
-				self.viewFinder.tintColor = .systemGreen
+				self.viewFinder.tintColor = .systemPurple
 			}
 		}
 	}
@@ -113,9 +113,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 		greenCertificate = nil
 		errorString = nil
 
-		if !captureSession.isRunning {
-			captureSession.startRunning()
-		}
+		captureSession.startRunning()
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
@@ -123,9 +121,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
 		navigationController?.setNavigationBarHidden(false, animated: true)
 
-		if captureSession.isRunning {
-			captureSession.stopRunning()
-		}
+		captureSession.stopRunning()
 	}
 
 	@IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
@@ -148,6 +144,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 			return
 		}
 		destination.greenCertificate = greenCertificate
+		captureSession.stopRunning()
 	}
 
 	func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {

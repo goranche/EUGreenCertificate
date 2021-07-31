@@ -5,7 +5,7 @@
   Created by Goran Blažič on 31/07/2021.
   Copyright © 2021 Goran Blažič s.p. All rights reserved.
 */
-
+"CFBundleDisplayName" = "Zeleni QR";
 "<empty>" = "<prazno>";
 "COVID-19 vaccine manufacturer" = "Izdelovalec COVID-19 cepiva";
 "COVID-19 vaccine or prophylaxis" = "COVID-19 cepivo ali profilaksa";
