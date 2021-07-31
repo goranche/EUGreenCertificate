@@ -144,9 +144,9 @@
 		51C41A6126B554C400577598 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
-				5185A25826B5A68800481753 /* Sections */,
 				5185A24C26B5A0C800481753 /* CertificateSectionDataSource.swift */,
 				51C41A6226B5552D00577598 /* GreenCertificateDataSource.swift */,
+				5185A25826B5A68800481753 /* Sections */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
