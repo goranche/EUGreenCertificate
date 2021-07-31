@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BitByteData",
+        "repositoryURL": "https://github.com/tsolomko/BitByteData",
+        "state": {
+          "branch": null,
+          "revision": "0969ebfb79ccbee05384249e818067a984337dc2",
+          "version": "1.4.4"
+        }
+      },
+      {
+        "package": "EUGreenCertificate",
+        "repositoryURL": "https://github.com/goranche/EUGreenCertificate",
+        "state": {
+          "branch": "main",
+          "revision": "113987d9eacd9e8bf57bb947b11606b33e57eb40",
+          "version": null
+        }
+      },
+      {
+        "package": "SWCompression",
+        "repositoryURL": "https://github.com/tsolomko/SWCompression.git",
+        "state": {
+          "branch": null,
+          "revision": "594cc1968e99f7df2b2d6e1d3ee76dec70ac9cc4",
+          "version": "4.5.11"
+        }
+      },
+      {
+        "package": "SwiftCBOR",
+        "repositoryURL": "https://github.com/unrelentingtech/SwiftCBOR",
+        "state": {
+          "branch": null,
+          "revision": "668c26fc3373d5f1bccbaad7665ca6048797e324",
+          "version": "0.4.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

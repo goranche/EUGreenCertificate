@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wva-vj-pNP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="cCR-Zx-cng">
+            <objects>
+                <navigationController id="wva-vj-pNP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E92-uH-pOz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Xlt-GA-MCB" kind="relationship" relationship="rootViewController" id="seh-z3-WMl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JOK-Pd-LpM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-483" y="126"/>
+        </scene>
+        <!--EU Green Certificate Scanner-->
+        <scene sceneID="Zs7-bu-cgD">
+            <objects>
+                <viewController id="Xlt-GA-MCB" customClass="ScannerViewController" customModule="CepilniQRc" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KHV-fC-0FU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fli-QQ-rOJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="167.5"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tbb-20-gJO">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="167"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Given name Family name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-y4-7yb">
+                                            <rect key="frame" x="40" y="112" width="334" height="31"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" systemColor="systemBackgroundColor"/>
+                                            <size key="shadowOffset" width="1" height="-2"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="cgb-y4-7yb" firstAttribute="leading" secondItem="tbb-20-gJO" secondAttribute="leading" constant="40" id="4aW-Ar-Wnq"/>
+                                        <constraint firstAttribute="trailing" secondItem="cgb-y4-7yb" secondAttribute="trailing" constant="40" id="YEB-hc-AgX"/>
+                                        <constraint firstAttribute="bottom" secondItem="cgb-y4-7yb" secondAttribute="bottom" constant="24" id="aZ0-5e-wrI"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999403953552" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BI8-Vf-V7o">
+                                <rect key="frame" x="0.0" y="268.5" width="414" height="412.5"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BI8-Vf-V7o" secondAttribute="height" id="Iw9-tY-rd1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="O0G-Aa-RnD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="BI8-Vf-V7o" firstAttribute="width" secondItem="BI8-Vf-V7o" secondAttribute="height" id="1gx-HI-adc"/>
+                            <constraint firstItem="BI8-Vf-V7o" firstAttribute="width" secondItem="KHV-fC-0FU" secondAttribute="width" id="DSx-Ri-Wg9"/>
+                            <constraint firstItem="fli-QQ-rOJ" firstAttribute="leading" secondItem="O0G-Aa-RnD" secondAttribute="leading" id="NPA-uy-vui"/>
+                            <constraint firstItem="fli-QQ-rOJ" firstAttribute="top" secondItem="KHV-fC-0FU" secondAttribute="top" id="Tny-1w-Fnh"/>
+                            <constraint firstItem="O0G-Aa-RnD" firstAttribute="trailing" secondItem="fli-QQ-rOJ" secondAttribute="trailing" id="XSo-tH-LU3"/>
+                            <constraint firstItem="BI8-Vf-V7o" firstAttribute="centerX" secondItem="O0G-Aa-RnD" secondAttribute="centerX" id="ce7-vg-LX2"/>
+                            <constraint firstItem="cgb-y4-7yb" firstAttribute="top" secondItem="O0G-Aa-RnD" secondAttribute="top" constant="24" id="qrP-CZ-w4E"/>
+                            <constraint firstItem="BI8-Vf-V7o" firstAttribute="centerY" secondItem="O0G-Aa-RnD" secondAttribute="centerY" id="xIs-0w-a91"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="oSp-oI-CbH" appends="YES" id="eHL-Ih-yHJ"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="EU Green Certificate Scanner" id="Z2C-Rd-bXt"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="cgb-y4-7yb" id="a3f-2a-sQ8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYE-6R-Qf0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="oSp-oI-CbH">
+                    <connections>
+                        <action selector="viewTapped:" destination="Xlt-GA-MCB" id="Itw-VY-Hzi"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="439" y="126"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="viewfinder" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
