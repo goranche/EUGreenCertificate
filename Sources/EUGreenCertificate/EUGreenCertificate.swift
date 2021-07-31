@@ -21,6 +21,15 @@ public struct EUGreenCertificate {
 		case invalidPayload
 	}
 
+	public enum EUGreenCertificationType {
+		case unknown
+		case vaccination
+		case test
+		case recovery
+	}
+
+	public let certificationType: EUGreenCertificationType
+
 	public let keyIdData: Data
 
 	public let version: String
@@ -92,7 +101,13 @@ public struct EUGreenCertificate {
 			recovery = nil
 		}
 
-		guard vaccination != nil || test != nil || recovery != nil else {
+		if let _ = vaccination {
+			certificationType = .vaccination
+		} else if let _ = test {
+			certificationType = .test
+		} else if let _ = recovery {
+			certificationType = .recovery
+		} else {
 			throw EUGreenCertificateErrors.invalidPayload
 		}
 	}

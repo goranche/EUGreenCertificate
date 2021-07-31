@@ -11,19 +11,10 @@ import EUGreenCertificate
 
 class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 
-	private enum CertificationType {
-		case unknown
-		case vaccination
-		case test
-		case recovery
-	}
-
 	private let greenCertificate: EUGreenCertificate
 	private let reuseIdentifier: String
 
 	private let dateFormatter = DateFormatter()
-
-	private let certificationType: CertificationType
 
 	init(using greenCertificate: EUGreenCertificate, andReuseId reuseIdentifier: String) {
 		self.greenCertificate = greenCertificate
@@ -31,21 +22,10 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 
 		dateFormatter.dateStyle = .medium
 		dateFormatter.timeStyle = .none
-
-		if let _ = greenCertificate.vaccination {
-			certificationType = .vaccination
-		} else if let _ = greenCertificate.test {
-			certificationType = .test
-		} else if let _ = greenCertificate.recovery {
-			certificationType = .recovery
-		} else {
-			certificationType = .unknown
-		}
-
 	}
 
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return certificationType == .unknown ? 0 : 3
+		return greenCertificate.certificationType == .unknown ? 0 : 3
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,7 +35,7 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 		case 1:
 			return 4
 		case 2:
-			switch certificationType {
+			switch greenCertificate.certificationType {
 			case .vaccination:
 				return 10
 			case .test:
@@ -77,7 +57,7 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 		case 1:
 			return "Name"
 		case 2:
-			switch certificationType {
+			switch greenCertificate.certificationType {
 			case .vaccination:
 				return "Vaccination data"
 			case .test:
@@ -101,7 +81,7 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 		case 1:
 			prepareName(cell, at: indexPath.row)
 		case 2:
-			switch certificationType {
+			switch greenCertificate.certificationType {
 			case .vaccination:
 				prepareVaccination(cell, at: indexPath.row)
 			case .test:
@@ -163,111 +143,111 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 	}
 
 	private func prepareVaccination(_ cell: UITableViewCell, at row: Int) {
-		guard certificationType == .vaccination, row < 10 else {
+		guard let vaccination = greenCertificate.vaccination, row < 10 else {
 			return
 		}
 		switch row {
 		case 0:
 			cell.textLabel?.text = "Unique certificate identifier"
-			cell.detailTextLabel?.text = greenCertificate.vaccination?.ci
+			cell.detailTextLabel?.text = vaccination.ci
 		case 1:
 			cell.textLabel?.text = "State or third country of administration"
-			cell.detailTextLabel?.text = greenCertificate.vaccination?.co
+			cell.detailTextLabel?.text = vaccination.co
 		case 2:
 			cell.textLabel?.text = "Number in a series of doses"
-			cell.detailTextLabel?.text = String(greenCertificate.vaccination?.dn ?? 0)
+			cell.detailTextLabel?.text = String(vaccination.dn)
 		case 3:
 			cell.textLabel?.text = "Date of vaccination"
-			cell.detailTextLabel?.text = greenCertificate.vaccination?.dt
+			cell.detailTextLabel?.text = vaccination.dt
 		case 4:
 			cell.textLabel?.text = "Certificate issuer"
-			cell.detailTextLabel?.text = greenCertificate.vaccination?.is
+			cell.detailTextLabel?.text = vaccination.is
 		case 5:
 			cell.textLabel?.text = "COVID-19 vaccine manufacturer"
-			cell.detailTextLabel?.text = greenCertificate.vaccination?.ma
+			cell.detailTextLabel?.text = vaccination.ma
 		case 6:
 			cell.textLabel?.text = "COVID-19 vaccine product"
-			cell.detailTextLabel?.text = greenCertificate.vaccination?.mp
+			cell.detailTextLabel?.text = vaccination.mp
 		case 7:
 			cell.textLabel?.text = "Number of doses in series"
-			cell.detailTextLabel?.text = String(greenCertificate.vaccination?.sd ?? 0)
+			cell.detailTextLabel?.text = String(vaccination.sd)
 		case 8:
 			cell.textLabel?.text = "Disease or agent targeted"
-			cell.detailTextLabel?.text = greenCertificate.vaccination?.tg
+			cell.detailTextLabel?.text = vaccination.tg
 		case 9:
 			cell.textLabel?.text = "COVID-19 vaccine or prophylaxis"
-			cell.detailTextLabel?.text = greenCertificate.vaccination?.vp
+			cell.detailTextLabel?.text = vaccination.vp
 		default:
 			break
 		}
 	}
 
 	private func prepareTest(_ cell: UITableViewCell, at row: Int) {
-		guard certificationType == .test, row < 10 else {
+		guard let test = greenCertificate.test, row < 10 else {
 			return
 		}
 		switch row {
 		case 0:
 			cell.textLabel?.text = "Disease or agent targeted"
-			cell.detailTextLabel?.text = greenCertificate.test?.tg
+			cell.detailTextLabel?.text = test.tg
 		case 1:
 			cell.textLabel?.text = "The type of test"
-			cell.detailTextLabel?.text = greenCertificate.test?.tt
+			cell.detailTextLabel?.text = test.tt
 		case 2:
 			cell.textLabel?.text = "Test name"
-			cell.detailTextLabel?.text = greenCertificate.test?.nm ?? "<empty>"
+			cell.detailTextLabel?.text = test.nm ?? "<empty>"
 		case 3:
 			cell.textLabel?.text = "Test device identifier"
-			cell.detailTextLabel?.text = greenCertificate.test?.ma ?? "<empty>"
+			cell.detailTextLabel?.text = test.ma ?? "<empty>"
 		case 4:
 			cell.textLabel?.text = "Date and time of the test sample collection"
-			cell.detailTextLabel?.text = greenCertificate.test?.sc
+			cell.detailTextLabel?.text = test.sc
 		case 5:
 			cell.textLabel?.text = "Result of the test"
-			cell.detailTextLabel?.text = greenCertificate.test?.tr
+			cell.detailTextLabel?.text = test.tr
 		case 6:
 			cell.textLabel?.text = "Testing centre or facility"
-			cell.detailTextLabel?.text = greenCertificate.test?.tc ?? "<empty>"
+			cell.detailTextLabel?.text = test.tc ?? "<empty>"
 		case 7:
 			cell.textLabel?.text = "State or third country of testing"
-			cell.detailTextLabel?.text = greenCertificate.test?.co
+			cell.detailTextLabel?.text = test.co
 		case 8:
 			cell.textLabel?.text = "Certificate issuer"
-			cell.detailTextLabel?.text = greenCertificate.test?.is
+			cell.detailTextLabel?.text = test.is
 		case 9:
 			cell.textLabel?.text = "Unique certificate identifier"
-			cell.detailTextLabel?.text = greenCertificate.test?.ci
+			cell.detailTextLabel?.text = test.ci
 		default:
 			break
 		}
 	}
 
 	private func prepareRecovery(_ cell: UITableViewCell, at row: Int) {
-		guard certificationType == .recovery, row < 7 else {
+		guard let recovery = greenCertificate.recovery, row < 7 else {
 			return
 		}
 		switch row {
 		case 0:
 			cell.textLabel?.text = "Disease or agent from which recovered"
-			cell.detailTextLabel?.text = greenCertificate.recovery?.tg
+			cell.detailTextLabel?.text = recovery.tg
 		case 1:
 			cell.textLabel?.text = "Date of holder’s first positive test"
-			cell.detailTextLabel?.text = greenCertificate.recovery?.fr
+			cell.detailTextLabel?.text = recovery.fr
 		case 2:
 			cell.textLabel?.text = "State or third country of testing"
-			cell.detailTextLabel?.text = greenCertificate.recovery?.co
+			cell.detailTextLabel?.text = recovery.co
 		case 3:
 			cell.textLabel?.text = "Certificate issuer"
-			cell.detailTextLabel?.text = greenCertificate.recovery?.is
+			cell.detailTextLabel?.text = recovery.is
 		case 4:
 			cell.textLabel?.text = "Certificate valid from"
-			cell.detailTextLabel?.text = greenCertificate.recovery?.df
+			cell.detailTextLabel?.text = recovery.df
 		case 5:
 			cell.textLabel?.text = "Certificate valid until"
-			cell.detailTextLabel?.text = greenCertificate.recovery?.du
+			cell.detailTextLabel?.text = recovery.du
 		case 6:
 			cell.textLabel?.text = "Unique certificate identifier"
-			cell.detailTextLabel?.text = greenCertificate.recovery?.ci
+			cell.detailTextLabel?.text = recovery.ci
 		default:
 			break
 		}

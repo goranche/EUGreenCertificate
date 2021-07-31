@@ -34,24 +34,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fli-QQ-rOJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="192"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tbb-20-gJO">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="192"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Given name Family name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-y4-7yb">
-                                            <rect key="frame" x="40" y="141" width="334" height="26.5"/>
+                                            <rect key="frame" x="40" y="165" width="334" height="26.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" systemColor="systemBackgroundColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaK-1H-cb9">
-                                            <rect key="frame" x="40" y="100" width="29" height="29"/>
+                                            <rect key="frame" x="40" y="88" width="77" height="77"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="EaK-1H-cb9" secondAttribute="height" id="9Dp-Gg-Zdw"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
                                             <color key="tintColor" systemColor="labelColor"/>
                                             <state key="normal" image="info.circle" catalog="system"/>
                                             <connections>
@@ -59,13 +59,13 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRh-xO-sDx">
-                                            <rect key="frame" x="345" y="100" width="29" height="29"/>
+                                            <rect key="frame" x="297" y="88" width="77" height="77"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="MRh-xO-sDx" secondAttribute="height" id="mYe-DY-ccz"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="64"/>
                                             <color key="tintColor" systemColor="labelColor"/>
-                                            <state key="normal" image="table.badge.more" catalog="system"/>
+                                            <state key="normal" image="ellipsis.circle" catalog="system"/>
                                             <connections>
                                                 <segue destination="7Pi-BQ-JOa" kind="show" identifier="showDetails" id="Jaq-kP-Z9x"/>
                                             </connections>
@@ -78,7 +78,7 @@
                                         <constraint firstAttribute="trailing" secondItem="MRh-xO-sDx" secondAttribute="trailing" constant="40" id="RyQ-tL-pFf"/>
                                         <constraint firstAttribute="trailing" secondItem="cgb-y4-7yb" secondAttribute="trailing" constant="40" id="YEB-hc-AgX"/>
                                         <constraint firstAttribute="bottom" secondItem="cgb-y4-7yb" secondAttribute="bottom" constant="24" id="aZ0-5e-wrI"/>
-                                        <constraint firstItem="cgb-y4-7yb" firstAttribute="top" secondItem="EaK-1H-cb9" secondAttribute="bottom" constant="12" id="uuX-P0-AkS"/>
+                                        <constraint firstItem="cgb-y4-7yb" firstAttribute="top" secondItem="EaK-1H-cb9" secondAttribute="bottom" id="uuX-P0-AkS"/>
                                         <constraint firstItem="EaK-1H-cb9" firstAttribute="leading" secondItem="tbb-20-gJO" secondAttribute="leading" constant="40" id="w86-RR-KCd"/>
                                     </constraints>
                                 </view>
@@ -128,7 +128,7 @@
                             <constraint firstItem="BI8-Vf-V7o" firstAttribute="centerX" secondItem="O0G-Aa-RnD" secondAttribute="centerX" id="ce7-vg-LX2"/>
                             <constraint firstItem="hFg-l0-3yM" firstAttribute="leading" secondItem="O0G-Aa-RnD" secondAttribute="leading" id="h2v-SI-f7P"/>
                             <constraint firstItem="O0G-Aa-RnD" firstAttribute="trailing" secondItem="hFg-l0-3yM" secondAttribute="trailing" id="jcf-Kg-yPu"/>
-                            <constraint firstItem="EaK-1H-cb9" firstAttribute="top" secondItem="O0G-Aa-RnD" secondAttribute="top" constant="12" id="lGC-st-3GC"/>
+                            <constraint firstItem="EaK-1H-cb9" firstAttribute="top" secondItem="O0G-Aa-RnD" secondAttribute="top" id="lGC-st-3GC"/>
                             <constraint firstItem="O0G-Aa-RnD" firstAttribute="bottom" secondItem="cRF-Qn-dxA" secondAttribute="bottom" constant="24" id="pHt-r9-TSs"/>
                             <constraint firstItem="BI8-Vf-V7o" firstAttribute="centerY" secondItem="O0G-Aa-RnD" secondAttribute="centerY" id="xIs-0w-a91"/>
                         </constraints>
@@ -239,8 +239,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="table.badge.more" catalog="system" width="128" height="92"/>
         <image name="viewfinder" catalog="system" width="128" height="115"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
