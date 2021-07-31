@@ -168,34 +168,34 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 		}
 		switch row {
 		case 0:
-			cell.textLabel?.text = "ci"
+			cell.textLabel?.text = "Unique certificate identifier"
 			cell.detailTextLabel?.text = greenCertificate.vaccination?.ci
 		case 1:
-			cell.textLabel?.text = "co"
+			cell.textLabel?.text = "State or third country of administration"
 			cell.detailTextLabel?.text = greenCertificate.vaccination?.co
 		case 2:
-			cell.textLabel?.text = "dn"
+			cell.textLabel?.text = "Number in a series of doses"
 			cell.detailTextLabel?.text = String(greenCertificate.vaccination?.dn ?? 0)
 		case 3:
-			cell.textLabel?.text = "dt"
+			cell.textLabel?.text = "Date of vaccination"
 			cell.detailTextLabel?.text = greenCertificate.vaccination?.dt
 		case 4:
-			cell.textLabel?.text = "is"
+			cell.textLabel?.text = "Certificate issuer"
 			cell.detailTextLabel?.text = greenCertificate.vaccination?.is
 		case 5:
-			cell.textLabel?.text = "ma"
+			cell.textLabel?.text = "COVID-19 vaccine manufacturer"
 			cell.detailTextLabel?.text = greenCertificate.vaccination?.ma
 		case 6:
-			cell.textLabel?.text = "mp"
+			cell.textLabel?.text = "COVID-19 vaccine product"
 			cell.detailTextLabel?.text = greenCertificate.vaccination?.mp
 		case 7:
-			cell.textLabel?.text = "sd"
+			cell.textLabel?.text = "Number of doses in series"
 			cell.detailTextLabel?.text = String(greenCertificate.vaccination?.sd ?? 0)
 		case 8:
-			cell.textLabel?.text = "tg"
+			cell.textLabel?.text = "Disease or agent targeted"
 			cell.detailTextLabel?.text = greenCertificate.vaccination?.tg
 		case 9:
-			cell.textLabel?.text = "vp"
+			cell.textLabel?.text = "COVID-19 vaccine or prophylaxis"
 			cell.detailTextLabel?.text = greenCertificate.vaccination?.vp
 		default:
 			break
@@ -208,34 +208,34 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 		}
 		switch row {
 		case 0:
-			cell.textLabel?.text = "tg"
+			cell.textLabel?.text = "Disease or agent targeted"
 			cell.detailTextLabel?.text = greenCertificate.test?.tg
 		case 1:
-			cell.textLabel?.text = "tt"
+			cell.textLabel?.text = "The type of test"
 			cell.detailTextLabel?.text = greenCertificate.test?.tt
 		case 2:
-			cell.textLabel?.text = "nm"
+			cell.textLabel?.text = "Test name"
 			cell.detailTextLabel?.text = greenCertificate.test?.nm ?? "<empty>"
 		case 3:
-			cell.textLabel?.text = "ma"
+			cell.textLabel?.text = "Test device identifier"
 			cell.detailTextLabel?.text = greenCertificate.test?.ma ?? "<empty>"
 		case 4:
-			cell.textLabel?.text = "sc"
+			cell.textLabel?.text = "Date and time of the test sample collection"
 			cell.detailTextLabel?.text = greenCertificate.test?.sc
 		case 5:
-			cell.textLabel?.text = "tr"
+			cell.textLabel?.text = "Result of the test"
 			cell.detailTextLabel?.text = greenCertificate.test?.tr
 		case 6:
-			cell.textLabel?.text = "tc"
+			cell.textLabel?.text = "Testing centre or facility"
 			cell.detailTextLabel?.text = greenCertificate.test?.tc ?? "<empty>"
 		case 7:
-			cell.textLabel?.text = "co"
+			cell.textLabel?.text = "State or third country of testing"
 			cell.detailTextLabel?.text = greenCertificate.test?.co
 		case 8:
-			cell.textLabel?.text = "is"
+			cell.textLabel?.text = "Certificate issuer"
 			cell.detailTextLabel?.text = greenCertificate.test?.is
 		case 9:
-			cell.textLabel?.text = "ci"
+			cell.textLabel?.text = "Unique certificate identifier"
 			cell.detailTextLabel?.text = greenCertificate.test?.ci
 		default:
 			break
@@ -248,25 +248,25 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 		}
 		switch row {
 		case 0:
-			cell.textLabel?.text = "tg"
+			cell.textLabel?.text = "Disease or agent from which recovered"
 			cell.detailTextLabel?.text = greenCertificate.recovery?.tg
 		case 1:
-			cell.textLabel?.text = "fr"
+			cell.textLabel?.text = "Date of holder’s first positive test"
 			cell.detailTextLabel?.text = greenCertificate.recovery?.fr
 		case 2:
-			cell.textLabel?.text = "co"
+			cell.textLabel?.text = "State or third country of testing"
 			cell.detailTextLabel?.text = greenCertificate.recovery?.co
 		case 3:
-			cell.textLabel?.text = "is"
+			cell.textLabel?.text = "Certificate issuer"
 			cell.detailTextLabel?.text = greenCertificate.recovery?.is
 		case 4:
-			cell.textLabel?.text = "df"
+			cell.textLabel?.text = "Certificate valid from"
 			cell.detailTextLabel?.text = greenCertificate.recovery?.df
 		case 5:
-			cell.textLabel?.text = "du"
+			cell.textLabel?.text = "Certificate valid until"
 			cell.detailTextLabel?.text = greenCertificate.recovery?.du
 		case 6:
-			cell.textLabel?.text = "ci"
+			cell.textLabel?.text = "Unique certificate identifier"
 			cell.detailTextLabel?.text = greenCertificate.recovery?.ci
 		default:
 			break
