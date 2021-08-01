@@ -48,3 +48,10 @@
 "Name" = "Name";
 "Full name" = "Full name";
 "Name in passport" = "Name in passport";
+"No valid EU green certificate data found" = "No valid EU green certificate data found";
+"An error occurred while base45 decoding data" = "An error occurred while base45 decoding data"
+"An error occurred while decompressing data" = "An error occurred while decompressing data";
+"An error occurred while parsing the data" = "An error occurred while parsing the data";
+"The data is in an invalid format" = "The data is in an invalid format";
+"A date field was provided in an unexptected format" = "A date field was provided in an unexptected format";
+"An unspecified error occurred" = "An unspecified error occurred";
