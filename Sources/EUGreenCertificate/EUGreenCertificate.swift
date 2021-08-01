@@ -12,7 +12,7 @@ import SwiftCBOR
 
 public struct EUGreenCertificate {
 
-	public enum EUGreenCertificateErrors: Error {
+	public enum EUGreenCertificateErrors: LocalizedError {
 		case unknownError
 		case invalidData
 		case base45Error
@@ -20,6 +20,27 @@ public struct EUGreenCertificate {
 		case cborError
 		case invalidPayload
 		case invalidDateFormat
+
+		public var errorDescription: String? {
+			var response: String
+			switch self {
+			case .invalidData:
+				response = "No valid EU green certificate data found"
+			case .base45Error:
+				response = "An error occurred while base45 decoding data"
+			case .decompressError:
+				response = "An error occurred while decompressing data"
+			case .cborError:
+				response = "An error occurred while parsing the data"
+			case .invalidPayload:
+				response = "The data is in an invalid format"
+			case .invalidDateFormat:
+				response = "A date field was provided in an unexptected format"
+			default:
+				response = "An unspecified error occurred"
+			}
+			return NSLocalizedString(response, comment: "")
+		}
 	}
 
 	public enum EUGreenCertificationType {
