@@ -11,7 +11,7 @@ guard let baseURL = URL(string: base) else {
 let unknownCase = "\tcase unknown = \"unknown\""
 let unknownDisplay = "\t\tcase .unknown: return \"unknown\""
 let displaySequence = [
-	"\tvar display: String {",
+	"\tpublic var display: String {",
 	"\t\tswitch self {",
 	unknownDisplay
 ]

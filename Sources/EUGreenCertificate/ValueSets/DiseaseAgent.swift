@@ -3,7 +3,7 @@ import Foundation
 public enum DiseaseAgent: String {
 	case unknown = "unknown"
 	case covid_19 = "840539006"
-	var display: String {
+	public var display: String {
 		switch self {
 		case .unknown: return "unknown"
 		case .covid_19: return "COVID-19"
