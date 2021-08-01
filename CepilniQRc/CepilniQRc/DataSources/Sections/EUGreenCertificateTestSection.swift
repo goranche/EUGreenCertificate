@@ -22,9 +22,14 @@ struct EUGreenCertificateTestSection: CertificateSectionDataSource {
 	private let greenCertificate: EUGreenCertificate
 	private let reuseIdentifier: String
 
+	private let dateFormatter = DateFormatter()
+
 	init(using greenCertificate: EUGreenCertificate, andReuseId reuseIdentifier: String) {
 		self.greenCertificate = greenCertificate
 		self.reuseIdentifier = reuseIdentifier
+
+		dateFormatter.timeStyle = .short
+		dateFormatter.dateStyle = .medium
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,7 +54,7 @@ struct EUGreenCertificateTestSection: CertificateSectionDataSource {
 			cell.detailTextLabel?.text = test.testDeviceId ?? NSLocalizedString("<empty>", comment: "")
 		case 4:
 			cell.textLabel?.text = NSLocalizedString("Date and time of the test sample collection", comment: "")
-			cell.detailTextLabel?.text = test.sc
+			cell.detailTextLabel?.text = dateFormatter.string(from: test.sampleCollected)
 		case 5:
 			cell.textLabel?.text = NSLocalizedString("Result of the test", comment: "")
 			cell.detailTextLabel?.text = test.testResult.display

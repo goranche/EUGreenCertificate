@@ -22,9 +22,14 @@ struct EUGreenCertificateVaccinationSection: CertificateSectionDataSource {
 	private let greenCertificate: EUGreenCertificate
 	private let reuseIdentifier: String
 
+	private let dateFormatter = DateFormatter()
+
 	init(using greenCertificate: EUGreenCertificate, andReuseId reuseIdentifier: String) {
 		self.greenCertificate = greenCertificate
 		self.reuseIdentifier = reuseIdentifier
+
+		dateFormatter.timeStyle = .none
+		dateFormatter.dateStyle = .medium
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,7 +51,7 @@ struct EUGreenCertificateVaccinationSection: CertificateSectionDataSource {
 			cell.detailTextLabel?.text = String(vaccination.totalInSeries)
 		case 3:
 			cell.textLabel?.text = NSLocalizedString("Date of vaccination", comment: "")
-			cell.detailTextLabel?.text = vaccination.dt
+			cell.detailTextLabel?.text = dateFormatter.string(from: vaccination.vaccinationDate)
 		case 4:
 			cell.textLabel?.text = NSLocalizedString("Certificate issuer", comment: "")
 			cell.detailTextLabel?.text = vaccination.certificateIssuer

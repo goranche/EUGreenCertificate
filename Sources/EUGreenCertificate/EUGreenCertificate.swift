@@ -19,6 +19,7 @@ public struct EUGreenCertificate {
 		case decompressError
 		case cborError
 		case invalidPayload
+		case invalidDateFormat
 	}
 
 	public enum EUGreenCertificationType {

@@ -11,14 +11,12 @@ import SwiftCBOR
 
 public struct EUGreenCertificateVaccination {
 
-	// TODO: Figure out the exact use of individual fields and give them better names
-	// still to do:  dt
-
 	public let ci: String
 	public let certificateId: String
 	public let co: String
 	public let administrationCountry: CountryCode
 	public let dn: UInt
+	public let vaccinationDate: Date
 	public let doseInSeries: UInt
 	public let dt: String
 	public let `is`: String
@@ -58,5 +56,13 @@ public struct EUGreenCertificateVaccination {
 		diseaseAgent = DiseaseAgent(rawValue: tg) ?? .unknown
 		vp = vpString
 		vaccineProphylaxis = VaccineProphylaxis(rawValue: vp) ?? .unknown
+
+		let dateFormatter = DateFormatter()
+		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+		dateFormatter.dateFormat = "yyyy-MM-dd"
+		guard let tempDate = dateFormatter.date(from: dt) else {
+			throw EUGreenCertificate.EUGreenCertificateErrors.invalidDateFormat
+		}
+		vaccinationDate = tempDate
 	}
 }

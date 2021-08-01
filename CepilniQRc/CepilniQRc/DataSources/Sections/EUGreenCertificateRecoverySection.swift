@@ -22,9 +22,14 @@ struct EUGreenCertificateRecoverySection: CertificateSectionDataSource {
 	private let greenCertificate: EUGreenCertificate
 	private let reuseIdentifier: String
 
+	private let dateFormatter = DateFormatter()
+
 	init(using greenCertificate: EUGreenCertificate, andReuseId reuseIdentifier: String) {
 		self.greenCertificate = greenCertificate
 		self.reuseIdentifier = reuseIdentifier
+
+		dateFormatter.timeStyle = .none
+		dateFormatter.dateStyle = .medium
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,7 +45,7 @@ struct EUGreenCertificateRecoverySection: CertificateSectionDataSource {
 			cell.detailTextLabel?.text = recovery.diseaseAgent.display
 		case 1:
 			cell.textLabel?.text = NSLocalizedString("Date of holder’s first positive test", comment: "")
-			cell.detailTextLabel?.text = recovery.fr
+			cell.detailTextLabel?.text = dateFormatter.string(from: recovery.firstPositiveTest)
 		case 2:
 			cell.textLabel?.text = NSLocalizedString("State or third country of testing", comment: "")
 			cell.detailTextLabel?.text = recovery.countryOfTest.display
@@ -49,10 +54,10 @@ struct EUGreenCertificateRecoverySection: CertificateSectionDataSource {
 			cell.detailTextLabel?.text = recovery.certificateIssuer
 		case 4:
 			cell.textLabel?.text = NSLocalizedString("Certificate valid from", comment: "")
-			cell.detailTextLabel?.text = recovery.df
+			cell.detailTextLabel?.text = dateFormatter.string(from: recovery.certificateValidFrom)
 		case 5:
 			cell.textLabel?.text = NSLocalizedString("Certificate valid until", comment: "")
-			cell.detailTextLabel?.text = recovery.du
+			cell.detailTextLabel?.text = dateFormatter.string(from: recovery.certificateValidTill)
 		case 6:
 			cell.textLabel?.text = NSLocalizedString("Unique certificate identifier", comment: "")
 			cell.detailTextLabel?.text = recovery.certificateId

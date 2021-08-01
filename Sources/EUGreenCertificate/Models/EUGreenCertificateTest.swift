@@ -11,9 +11,6 @@ import SwiftCBOR
 
 public struct EUGreenCertificateTest {
 
-	// TODO: Figure out the exact use of individual fields and give them better names
-	// still to do: sc
-
 	public let tg: String
 	public let diseaseAgent: DiseaseAgent
 	public let tt: String
@@ -23,6 +20,7 @@ public struct EUGreenCertificateTest {
 	public let ma: String?
 	public let testDeviceId: String?
 	public let sc: String
+	public let sampleCollected: Date
 	public let tr: String
 	public let testResult: LabResult
 	public let tc: String?
@@ -73,5 +71,13 @@ public struct EUGreenCertificateTest {
 			tc = nil
 		}
 		testCenter = tc
+
+		let dateFormatter = DateFormatter()
+		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+		guard let tempDate = dateFormatter.date(from: sc) else {
+			throw EUGreenCertificate.EUGreenCertificateErrors.invalidDateFormat
+		}
+		sampleCollected = tempDate
 	}
 }
