@@ -18,7 +18,8 @@ let displaySequence = [
 let closingSequence = [
 	"\t\t}",
 	"\t}",
-	"}"
+	"}",
+	""
 ]
 
 // MARK: - ValueConverter
