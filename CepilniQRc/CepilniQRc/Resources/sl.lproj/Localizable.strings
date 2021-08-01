@@ -49,7 +49,7 @@
 "Full name" = "Polno ime";
 "Name in passport" = "Ime v potnem listu";
 "No valid EU green certificate data found" = "Nisem našel veljavne podatke";
-"An error occurred while base45 decoding data" = "Napaka pri dekodiranju podatkov"
+"An error occurred while base45 decoding data" = "Napaka pri dekodiranju podatkov";
 "An error occurred while decompressing data" = "Napaka pri dekompresiranju podatkov";
 "An error occurred while parsing the data" = "Napaka pri prepoznavi podatkov";
 "The data is in an invalid format" = "Podatki so v napačnem formatu";
