@@ -1,6 +1,6 @@
 // Generated from https://github.com/ehn-dcc-development/ehn-dcc-schema => valuesets/test-result.json
 import Foundation
-enum LabResult: String {
+public enum LabResult: String {
 	case unknown = "unknown"
 	case detected = "260373001"
 	case not_detected = "260415000"

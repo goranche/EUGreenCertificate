@@ -39,7 +39,7 @@ struct CountryCodesConverter: ValueConverter {
 		var outputArray = [
 			"// Generated from https://github.com/ehn-dcc-development/ehn-dcc-schema => valuesets/country-2-codes.json",
 			"import Foundation",
-			"enum CountryCode: String {",
+			"public enum CountryCode: String {",
 			unknownCase
 		]
 		values.keys.forEach {
@@ -68,7 +68,7 @@ struct DiseaseAgentsConverter: ValueConverter {
 		var outputArray = [
 			"// Generated from https://github.com/ehn-dcc-development/ehn-dcc-schema => valuesets/disease-agent-targeted.json",
 			"import Foundation",
-			"enum DiseaseAgent: String {",
+			"public enum DiseaseAgent: String {",
 			unknownCase
 		]
 		values.keys.forEach {
@@ -103,7 +103,7 @@ struct LabTestManufacturersConverter: ValueConverter {
 		var outputArray = [
 			"// Generated from https://github.com/ehn-dcc-development/ehn-dcc-schema => valuesets/test-manf.json",
 			"import Foundation",
-			"enum LabTestManufacturer: String {",
+			"public enum LabTestManufacturer: String {",
 			unknownCase
 		]
 		values.keys.forEach {
@@ -132,7 +132,7 @@ struct LabResultConverter: ValueConverter {
 		var outputArray = [
 			"// Generated from https://github.com/ehn-dcc-development/ehn-dcc-schema => valuesets/test-result.json",
 			"import Foundation",
-			"enum LabResult: String {",
+			"public enum LabResult: String {",
 			unknownCase
 		]
 		values.keys.forEach {
@@ -167,7 +167,7 @@ struct LabTestTypeConverter: ValueConverter {
 		var outputArray = [
 			"// Generated from https://github.com/ehn-dcc-development/ehn-dcc-schema => valuesets/test-type.json",
 			"import Foundation",
-			"enum LabTestType: String {",
+			"public enum LabTestType: String {",
 			unknownCase
 		]
 		values.keys.forEach {
@@ -196,7 +196,7 @@ struct VaccineManufacturerConverter: ValueConverter {
 		var outputArray = [
 			"// Generated from https://github.com/ehn-dcc-development/ehn-dcc-schema => valuesets/vaccine-mah-manf.json",
 			"import Foundation",
-			"enum VaccineManufacturer: String {",
+			"public enum VaccineManufacturer: String {",
 			unknownCase
 		]
 		values.keys.forEach {
@@ -225,7 +225,7 @@ struct VaccineNameConverter: ValueConverter {
 		var outputArray = [
 			"// Generated from https://github.com/ehn-dcc-development/ehn-dcc-schema => valuesets/vaccine-medicinal-product.json",
 			"import Foundation",
-			"enum VaccineName: String {",
+			"public enum VaccineName: String {",
 			unknownCase
 		]
 		values.keys.forEach {
@@ -254,7 +254,7 @@ struct VaccineProphylaxisConverter: ValueConverter {
 		var outputArray = [
 			"// Generated from https://github.com/ehn-dcc-development/ehn-dcc-schema => valuesets/vaccine-prophylaxis.json",
 			"import Foundation",
-			"enum VaccineProphylaxis: String {",
+			"public enum VaccineProphylaxis: String {",
 			unknownCase
 		]
 		values.keys.forEach {
@@ -273,8 +273,6 @@ struct VaccineProphylaxisConverter: ValueConverter {
 		}
 	}
 }
-
-
 
 // MARK: - EU Value Sets
 
