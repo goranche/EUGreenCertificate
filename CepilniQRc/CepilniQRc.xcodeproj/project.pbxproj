@@ -52,7 +52,6 @@
 		51C41A6626B56B9F00577598 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Main.strings; sourceTree = "<group>"; };
 		51C41A6A26B56C9500577598 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		51C41A6C26B56CA000577598 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		51EB00DF26B6A668002C409A /* EUGreenCertificate */ = {isa = PBXFileReference; lastKnownFileType = folder; name = EUGreenCertificate; path = ../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				5126BD6726B4C105001D7942 /* _Info.plist */,
-				51EB00DF26B6A668002C409A /* EUGreenCertificate */,
 				51C41A6126B554C400577598 /* DataSources */,
 				5126BD7126B4C196001D7942 /* LifeCycle */,
 				5126BD7226B4C19D001D7942 /* Resources */,
@@ -415,6 +413,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = GLHH7R3J9N;
 				INFOPLIST_FILE = CepilniQRc/_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -434,6 +433,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = GLHH7R3J9N;
 				INFOPLIST_FILE = CepilniQRc/_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
