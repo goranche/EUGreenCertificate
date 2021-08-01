@@ -44,7 +44,7 @@ struct EUGreenCertificateGeneralSection: CertificateSectionDataSource {
 			cell.detailTextLabel?.text = greenCertificate.keyIdData.hexEncodedString()
 		case 2:
 			cell.textLabel?.text = NSLocalizedString("Issuer Country", comment: "")
-			cell.detailTextLabel?.text = greenCertificate.issuerCountry
+			cell.detailTextLabel?.text = greenCertificate.issuerCountry.display
 		case 3:
 			cell.textLabel?.text = NSLocalizedString("Date of birth", comment: "")
 			cell.detailTextLabel?.text = greenCertificate.dateOfBirth

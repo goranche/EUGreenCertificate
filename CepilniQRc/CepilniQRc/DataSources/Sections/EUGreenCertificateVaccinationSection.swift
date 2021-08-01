@@ -37,34 +37,34 @@ struct EUGreenCertificateVaccinationSection: CertificateSectionDataSource {
 		switch indexPath.row {
 		case 0:
 			cell.textLabel?.text = NSLocalizedString("Unique certificate identifier", comment: "")
-			cell.detailTextLabel?.text = vaccination.ci
+			cell.detailTextLabel?.text = vaccination.certificateId
 		case 1:
 			cell.textLabel?.text = NSLocalizedString("State or third country of administration", comment: "")
-			cell.detailTextLabel?.text = vaccination.co
+			cell.detailTextLabel?.text = vaccination.administrationCountry.display
 		case 2:
 			cell.textLabel?.text = NSLocalizedString("Number in a series of doses", comment: "")
-			cell.detailTextLabel?.text = String(vaccination.dn)
+			cell.detailTextLabel?.text = String(vaccination.totalInSeries)
 		case 3:
 			cell.textLabel?.text = NSLocalizedString("Date of vaccination", comment: "")
 			cell.detailTextLabel?.text = vaccination.dt
 		case 4:
 			cell.textLabel?.text = NSLocalizedString("Certificate issuer", comment: "")
-			cell.detailTextLabel?.text = vaccination.is
+			cell.detailTextLabel?.text = vaccination.certificateIssuer
 		case 5:
 			cell.textLabel?.text = NSLocalizedString("COVID-19 vaccine manufacturer", comment: "")
-			cell.detailTextLabel?.text = vaccination.ma
+			cell.detailTextLabel?.text = vaccination.vaccineManufacturer.display
 		case 6:
 			cell.textLabel?.text = NSLocalizedString("COVID-19 vaccine product", comment: "")
-			cell.detailTextLabel?.text = vaccination.mp
+			cell.detailTextLabel?.text = vaccination.vaccineName.display
 		case 7:
 			cell.textLabel?.text = NSLocalizedString("Number of doses in series", comment: "")
-			cell.detailTextLabel?.text = String(vaccination.sd)
+			cell.detailTextLabel?.text = String(vaccination.doseInSeries)
 		case 8:
 			cell.textLabel?.text = NSLocalizedString("Disease or agent targeted", comment: "")
-			cell.detailTextLabel?.text = vaccination.tg
+			cell.detailTextLabel?.text = vaccination.diseaseAgent.display
 		case 9:
 			cell.textLabel?.text = NSLocalizedString("COVID-19 vaccine or prophylaxis", comment: "")
-			cell.detailTextLabel?.text = vaccination.vp
+			cell.detailTextLabel?.text = vaccination.vaccineProphylaxis.display
 		default:
 			break
 		}

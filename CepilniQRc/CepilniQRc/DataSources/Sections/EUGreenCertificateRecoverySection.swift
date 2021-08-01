@@ -37,16 +37,16 @@ struct EUGreenCertificateRecoverySection: CertificateSectionDataSource {
 		switch indexPath.row {
 		case 0:
 			cell.textLabel?.text = NSLocalizedString("Disease or agent from which recovered", comment: "")
-			cell.detailTextLabel?.text = recovery.tg
+			cell.detailTextLabel?.text = recovery.diseaseAgent.display
 		case 1:
 			cell.textLabel?.text = NSLocalizedString("Date of holder’s first positive test", comment: "")
 			cell.detailTextLabel?.text = recovery.fr
 		case 2:
 			cell.textLabel?.text = NSLocalizedString("State or third country of testing", comment: "")
-			cell.detailTextLabel?.text = recovery.co
+			cell.detailTextLabel?.text = recovery.countryOfTest.display
 		case 3:
 			cell.textLabel?.text = NSLocalizedString("Certificate issuer", comment: "")
-			cell.detailTextLabel?.text = recovery.is
+			cell.detailTextLabel?.text = recovery.certificateIssuer
 		case 4:
 			cell.textLabel?.text = NSLocalizedString("Certificate valid from", comment: "")
 			cell.detailTextLabel?.text = recovery.df
@@ -55,7 +55,7 @@ struct EUGreenCertificateRecoverySection: CertificateSectionDataSource {
 			cell.detailTextLabel?.text = recovery.du
 		case 6:
 			cell.textLabel?.text = NSLocalizedString("Unique certificate identifier", comment: "")
-			cell.detailTextLabel?.text = recovery.ci
+			cell.detailTextLabel?.text = recovery.certificateId
 		default:
 			break
 		}

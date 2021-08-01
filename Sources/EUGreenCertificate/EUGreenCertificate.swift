@@ -34,7 +34,7 @@ public struct EUGreenCertificate {
 
 	public let version: String
 
-	public let issuerCountry: String
+	public let issuerCountry: CountryCode
 
 	public let issueDate: Date
 	public let expirationDate: Date
@@ -66,7 +66,7 @@ public struct EUGreenCertificate {
 			throw EUGreenCertificateErrors.invalidPayload
 		}
 
-		self.issuerCountry = issuerCountry
+		self.issuerCountry = CountryCode(rawValue: issuerCountry) ?? .unknown
 
 		issueDate = Date(timeIntervalSince1970: TimeInterval(issueTimestamp))
 		expirationDate = Date(timeIntervalSince1970: TimeInterval(expirationTimestamp))
@@ -76,7 +76,16 @@ public struct EUGreenCertificate {
 		}
 
 		self.version = version
-		self.dateOfBirth = dateOfBirth
+		switch dateOfBirth.count {
+		case ..<4:
+			self.dateOfBirth = ""
+		case 4..<7:
+			self.dateOfBirth = "\(dateOfBirth)-XX"
+		case 7..<10:
+			self.dateOfBirth = "\(dateOfBirth)-XX"
+		default:
+			self.dateOfBirth = dateOfBirth
+		}
 
 		guard case .map(let namMap) = valueMap["nam"] else {
 			throw EUGreenCertificateErrors.invalidPayload

@@ -37,34 +37,34 @@ struct EUGreenCertificateTestSection: CertificateSectionDataSource {
 		switch indexPath.row {
 		case 0:
 			cell.textLabel?.text = NSLocalizedString("Disease or agent targeted", comment: "")
-			cell.detailTextLabel?.text = test.tg
+			cell.detailTextLabel?.text = test.diseaseAgent.display
 		case 1:
 			cell.textLabel?.text = NSLocalizedString("The type of test", comment: "")
-			cell.detailTextLabel?.text = test.tt
+			cell.detailTextLabel?.text = test.testType.display
 		case 2:
 			cell.textLabel?.text = NSLocalizedString("Test name", comment: "")
-			cell.detailTextLabel?.text = test.nm ?? NSLocalizedString("<empty>", comment: "")
+			cell.detailTextLabel?.text = test.testName ?? NSLocalizedString("<empty>", comment: "")
 		case 3:
 			cell.textLabel?.text = NSLocalizedString("Test device identifier", comment: "")
-			cell.detailTextLabel?.text = test.ma ?? NSLocalizedString("<empty>", comment: "")
+			cell.detailTextLabel?.text = test.testDeviceId ?? NSLocalizedString("<empty>", comment: "")
 		case 4:
 			cell.textLabel?.text = NSLocalizedString("Date and time of the test sample collection", comment: "")
 			cell.detailTextLabel?.text = test.sc
 		case 5:
 			cell.textLabel?.text = NSLocalizedString("Result of the test", comment: "")
-			cell.detailTextLabel?.text = test.tr
+			cell.detailTextLabel?.text = test.testResult.display
 		case 6:
 			cell.textLabel?.text = NSLocalizedString("Testing centre or facility", comment: "")
-			cell.detailTextLabel?.text = test.tc ?? NSLocalizedString("<empty>", comment: "")
+			cell.detailTextLabel?.text = test.testCenter ?? NSLocalizedString("<empty>", comment: "")
 		case 7:
 			cell.textLabel?.text = NSLocalizedString("State or third country of testing", comment: "")
-			cell.detailTextLabel?.text = test.co
+			cell.detailTextLabel?.text = test.countryOfTest.display
 		case 8:
 			cell.textLabel?.text = NSLocalizedString("Certificate issuer", comment: "")
-			cell.detailTextLabel?.text = test.is
+			cell.detailTextLabel?.text = test.certificateIssuer
 		case 9:
 			cell.textLabel?.text = NSLocalizedString("Unique certificate identifier", comment: "")
-			cell.detailTextLabel?.text = test.ci
+			cell.detailTextLabel?.text = test.certificateId
 		default:
 			break
 		}
