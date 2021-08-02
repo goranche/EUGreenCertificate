@@ -1,12 +1,21 @@
 
+/* Class = "UINavigationItem"; title = "Terms of use"; ObjectID = "8R9-xl-iKi"; */
+"8R9-xl-iKi.title" = "Pogoji uporabe";
+
 /* Class = "UILabel"; text = "EU Green Certificate Scanner"; ObjectID = "Dbd-tV-MVF"; */
 "Dbd-tV-MVF.text" = "Čitalnik Zelenega EU Certifikata";
 
 /* Class = "UINavigationItem"; title = "About the app"; ObjectID = "EiD-X2-2VM"; */
 "EiD-X2-2VM.title" = "O Applikaciji";
 
+/* Class = "UILabel"; text = "This app is meant for personal use only!\n\nNo digital signature verification is done, and no additional checks with the health authorities are performed.\n\nThe app may not be used in situations where a EU green certificate holder would be granted some privilege based on the certificate (i.e. entry to an event, restaurant, or other).\n\nBy accepting, you acknowledge this, and take full responsibility for the way the app will be used."; ObjectID = "LIS-dO-t2I"; */
+"LIS-dO-t2I.text" = "Ta aplikacija je namenjena izključno osebni rabi.\n\nAplikacija ne upošteva digitalnega podpisa, kot tudi ne preverja pristnost podatkov na strani zdravstvenih ustanov.\n\nAplikacija se ne sme uporabljati v situacijah, kjer je nosilec kode na osnovi podatkov v QR kodi deležen določenih pravic (na primer vstop na dogodek, v restavracijo, prevozno sredstvo ali drugo).\n\nS sprejemom teh pogojev sprejemate vso odgovornost za morebitne posledice, ki bi jih uporaba aplikacije lahko prinesla.";
+
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Nkt-JW-rZ0"; */
 "Nkt-JW-rZ0.title" = "Item";
+
+/* Class = "UILabel"; text = "EU Green Certificate Scanner"; ObjectID = "Q7W-OP-eqa"; */
+"Q7W-OP-eqa.text" = "Čitalnik Zelenega EU Certifikata";
 
 /* Class = "UINavigationItem"; title = "QR Details"; ObjectID = "SBp-r7-Gyu"; */
 "SBp-r7-Gyu.title" = "QR Podrobnosti";
@@ -18,10 +27,16 @@
 "aKR-iF-wnz.text" = "Subtitle";
 
 /* Class = "UILabel"; text = "Some message"; ObjectID = "cRF-Qn-dxA"; */
-"cRF-Qn-dxA.text" = "Neko sporočilo";
+"cRF-Qn-dxA.text" = "Some message";
 
 /* Class = "UILabel"; text = "Given name Family name"; ObjectID = "cgb-y4-7yb"; */
 "cgb-y4-7yb.text" = "Dano Ime Priimek";
 
+/* Class = "UIButton"; normalTitle = "Accept"; ObjectID = "dkN-u8-Dj3"; */
+"dkN-u8-Dj3.normalTitle" = "Sprejmi";
+
+/* Class = "UILabel"; text = "Green QR"; ObjectID = "in5-bL-zfa"; */
+"in5-bL-zfa.text" = "Zeleni QR";
+
 /* Class = "UILabel"; text = "Title"; ObjectID = "vO9-mp-ask"; */
-"vO9-mp-ask.text" = "Naslov";
+"vO9-mp-ask.text" = "Title";

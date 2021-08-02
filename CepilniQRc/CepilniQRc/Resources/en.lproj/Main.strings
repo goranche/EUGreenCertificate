@@ -1,12 +1,21 @@
 
+/* Class = "UINavigationItem"; title = "Terms of use"; ObjectID = "8R9-xl-iKi"; */
+"8R9-xl-iKi.title" = "Terms of use";
+
 /* Class = "UILabel"; text = "EU Green Certificate Scanner"; ObjectID = "Dbd-tV-MVF"; */
 "Dbd-tV-MVF.text" = "EU Green Certificate Scanner";
 
 /* Class = "UINavigationItem"; title = "About the app"; ObjectID = "EiD-X2-2VM"; */
 "EiD-X2-2VM.title" = "About the app";
 
+/* Class = "UILabel"; text = "This app is meant for personal use only!\n\nNo digital signature verification is done, and no additional checks with the health authorities are performed.\n\nThe app may not be used in situations where a EU green certificate holder would be granted some privilege based on the certificate (i.e. entry to an event, restaurant, or other).\n\nBy accepting, you acknowledge this, and take full responsibility for the way the app will be used."; ObjectID = "LIS-dO-t2I"; */
+"LIS-dO-t2I.text" = "This app is meant for personal use only!\n\nNo digital signature verification is done, and no additional checks with the health authorities are performed.\n\nThe app may not be used in situations where a EU green certificate holder would be granted some privilege based on the certificate (i.e. entry to an event, restaurant, or other).\n\nBy accepting, you acknowledge this, and take full responsibility for the way the app will be used.";
+
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Nkt-JW-rZ0"; */
 "Nkt-JW-rZ0.title" = "Item";
+
+/* Class = "UILabel"; text = "EU Green Certificate Scanner"; ObjectID = "Q7W-OP-eqa"; */
+"Q7W-OP-eqa.text" = "EU Green Certificate Scanner";
 
 /* Class = "UINavigationItem"; title = "QR Details"; ObjectID = "SBp-r7-Gyu"; */
 "SBp-r7-Gyu.title" = "QR Details";
@@ -22,6 +31,12 @@
 
 /* Class = "UILabel"; text = "Given name Family name"; ObjectID = "cgb-y4-7yb"; */
 "cgb-y4-7yb.text" = "Given name Family name";
+
+/* Class = "UIButton"; normalTitle = "Accept"; ObjectID = "dkN-u8-Dj3"; */
+"dkN-u8-Dj3.normalTitle" = "Accept";
+
+/* Class = "UILabel"; text = "Green QR"; ObjectID = "in5-bL-zfa"; */
+"in5-bL-zfa.text" = "Green QR";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "vO9-mp-ask"; */
 "vO9-mp-ask.text" = "Title";

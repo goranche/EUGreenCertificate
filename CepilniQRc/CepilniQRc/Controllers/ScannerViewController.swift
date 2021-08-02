@@ -103,15 +103,23 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 				fatalError("We need access...")
 			}
 		}
+
+		greenCertificate = nil
+		errorString = nil
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		navigationController?.setNavigationBarHidden(true, animated: true)
+	}
 
-		greenCertificate = nil
-		errorString = nil
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+
+		if !AppSettings.shared.termsAccepted {
+			performSegue(withIdentifier: "requireTerms", sender: self)
+		}
 
 		captureSession.startRunning()
 	}
@@ -132,7 +140,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 	}
 
 	@IBAction func unwindToScanner(_ segue: UIStoryboardSegue) {
-		// Leaving empty, the function is here just so we can unwind in the storyboard
+		DispatchQueue.main.async {
+			self.captureSession.startRunning()
+		}
 	}
 
 	override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -140,11 +150,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		guard let greenCertificate = greenCertificate, let destination = segue.destination as? DetailViewController else {
-			return
+		if let greenCertificate = greenCertificate, let destination = segue.destination as? DetailViewController {
+			destination.greenCertificate = greenCertificate
 		}
-		destination.greenCertificate = greenCertificate
-		captureSession.stopRunning()
 	}
 
 	func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
