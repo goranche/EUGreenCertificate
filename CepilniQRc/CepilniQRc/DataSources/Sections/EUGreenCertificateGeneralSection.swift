@@ -16,7 +16,7 @@ struct EUGreenCertificateGeneralSection: CertificateSectionDataSource {
 	}
 
 	var numberOfRows: Int {
-		6
+		4
 	}
 
 	private let greenCertificate: EUGreenCertificate
@@ -48,10 +48,10 @@ struct EUGreenCertificateGeneralSection: CertificateSectionDataSource {
 		case 3:
 			cell.textLabel?.text = NSLocalizedString("Date of birth", comment: "")
 			cell.detailTextLabel?.text = greenCertificate.dateOfBirth
-		case 4:
+		case 4: // Will not be displayed, unless numberOfRows is increased
 			cell.textLabel?.text = NSLocalizedString("issueDate (?)", comment: "")
 			cell.detailTextLabel?.text = dateFormatter.string(from: greenCertificate.issueDate)
-		case 5:
+		case 5: // Will not be displayed, unless numberOfRows is increased
 			cell.textLabel?.text = NSLocalizedString("expirationDate (?)", comment: "")
 			cell.detailTextLabel?.text = dateFormatter.string(from: greenCertificate.expirationDate)
 		default:

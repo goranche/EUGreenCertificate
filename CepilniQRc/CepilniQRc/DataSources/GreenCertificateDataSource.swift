@@ -26,8 +26,8 @@ class GreenCertificateDataSource: NSObject, UITableViewDataSource {
 		dateFormatter.timeStyle = .none
 
 		var sections: [CertificateSectionDataSource] = [
-			EUGreenCertificateGeneralSection(using: greenCertificate, andReuseId: reuseIdentifier),
-			EUGreenCertificateNameSection(using: greenCertificate, andReuseId: reuseIdentifier)
+			EUGreenCertificateNameSection(using: greenCertificate, andReuseId: reuseIdentifier),
+			EUGreenCertificateGeneralSection(using: greenCertificate, andReuseId: reuseIdentifier)
 		]
 
 		switch greenCertificate.certificationType {
