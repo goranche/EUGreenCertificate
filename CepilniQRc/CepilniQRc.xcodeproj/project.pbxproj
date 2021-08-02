@@ -30,8 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		511FA59826B829DF0025B5E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		511FA59A26B829EC0025B5E9 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Main.strings; sourceTree = "<group>"; };
+		511FA59C26B832BC0025B5E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		5126BD5626B4C104001D7942 /* CepilniQRc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CepilniQRc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5126BD6026B4C104001D7942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5126BD6226B4C105001D7942 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -269,8 +269,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				5126BD6026B4C104001D7942 /* Base */,
-				511FA59826B829DF0025B5E9 /* en */,
 				511FA59A26B829EC0025B5E9 /* sl */,
+				511FA59C26B832BC0025B5E9 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

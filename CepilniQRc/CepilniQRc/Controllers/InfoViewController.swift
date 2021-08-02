@@ -10,4 +10,6 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+	@IBAction func unwindToInfo(_ segue: UIStoryboardSegue) {
+	}
 }

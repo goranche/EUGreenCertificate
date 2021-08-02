@@ -1,4 +1,7 @@
 
+/* Class = "UIButton"; normalTitle = "Terms of use"; ObjectID = "87e-Ij-sTE"; */
+"87e-Ij-sTE.normalTitle" = "Terms of use";
+
 /* Class = "UINavigationItem"; title = "Terms of use"; ObjectID = "8R9-xl-iKi"; */
 "8R9-xl-iKi.title" = "Terms of use";
 
@@ -34,6 +37,9 @@
 
 /* Class = "UIButton"; normalTitle = "Accept"; ObjectID = "dkN-u8-Dj3"; */
 "dkN-u8-Dj3.normalTitle" = "Accept";
+
+/* Class = "UILabel"; text = "Use this app to scan the QR code on your EU green certificate, and view the data that's contained in it.\n\nThe app is intended for personal use only and may not be used in any other capacity. It's purpose is to give you, a green certificate holder, the option of exploring and/or verifying the data contained in the certificate.\n\nNo more \"secrecy\" around what can be extracted from the QR codes.\n\nYour data is protected at all times, except for extracting and displaying the data, the app does nothing more with the data. No additional processing and/or storage is performed.\nWhat's more, the app has no means of contacting any server, not even for analytics.\nAll this is by design, to make sure your data remains just that: YOUR's.\n\nThe source code for this app can be found on github:\nhttps://github.com/goranche/EUGreenCertificate\n\n© 2021, Goran Blažič. All rights reserved."; ObjectID = "iQZ-s5-ye5"; */
+"iQZ-s5-ye5.text" = "Use this app to scan the QR code on your EU green certificate, and view the data that's contained in it.\n\nThe app is intended for personal use only and may not be used in any other capacity. It's purpose is to give you, a green certificate holder, the option of exploring and/or verifying the data contained in the certificate.\n\nNo more \"secrecy\" around what can be extracted from the QR codes.\n\nYour data is protected at all times: except for extracting and displaying the data, the app does nothing more with the data. No additional processing and/or storage is performed.\nWhat's more, the app has no means of contacting any server, not even for analytics.\nAll this is by design, to make sure your data remains just that: YOUR's.\n\nThe source code for this app can be found on github:\ngoranche/EUGreenCertificate\n\n© 2021, Goran Blažič. All rights reserved.";
 
 /* Class = "UILabel"; text = "Green QR"; ObjectID = "in5-bL-zfa"; */
 "in5-bL-zfa.text" = "Green QR";

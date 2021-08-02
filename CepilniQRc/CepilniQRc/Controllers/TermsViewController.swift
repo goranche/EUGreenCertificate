@@ -10,11 +10,20 @@ import UIKit
 
 class TermsViewController: UIViewController, UIAdaptivePresentationControllerDelegate {
 
+	@IBOutlet var closeBarButton: UIBarButtonItem!
+	@IBOutlet var acceptButton: UIButton!
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		isModalInPresentation = true
+		isModalInPresentation = !AppSettings.shared.termsAccepted
 		navigationController?.presentationController?.delegate = self
+
+		if !AppSettings.shared.termsAccepted {
+			navigationItem.rightBarButtonItem = nil
+		} else {
+			acceptButton.removeFromSuperview()
+		}
 	}
 
 	func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
