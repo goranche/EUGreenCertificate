@@ -9,7 +9,7 @@
 import Foundation
 import SwiftCBOR
 
-public struct EUGreenCertificateTest {
+public struct EUGreenCertificateTest: EUGreenCertificateDate {
 
 	public let tg: String
 	public let diseaseAgent: DiseaseAgent
@@ -20,7 +20,7 @@ public struct EUGreenCertificateTest {
 	public let ma: String?
 	public let testDeviceId: String?
 	public let sc: String
-	public let sampleCollected: Date
+	private (set) public var sampleCollected: Date = Date()
 	public let tr: String
 	public let testResult: LabResult
 	public let tc: String?
@@ -33,9 +33,22 @@ public struct EUGreenCertificateTest {
 	public let certificateId: String
 
 	init(_ cborData: [CBOR: CBOR]) throws {
-		guard case .utf8String(let tgString) = cborData["tg"], case .utf8String(let ttString) = cborData["tt"], case .tagged(_, let scValue) = cborData["sc"], case .utf8String(let scString) = scValue, case .utf8String(let trString) = cborData["tr"], case .utf8String(let coString) = cborData["co"], case .utf8String(let isString) = cborData["is"], case .utf8String(let ciString) = cborData["ci"] else {
+		var scString: String
+
+		guard case .utf8String(let tgString) = cborData["tg"], case .utf8String(let ttString) = cborData["tt"], case .utf8String(let trString) = cborData["tr"], case .utf8String(let coString) = cborData["co"], case .utf8String(let isString) = cborData["is"], case .utf8String(let ciString) = cborData["ci"] else {
 			throw EUGreenCertificate.EUGreenCertificateErrors.invalidPayload
 		}
+
+		// For some reason the t/sc field is a .tagged instead of an .utf8String 🤦‍♂️
+		// I've noticed this mainly in slovene QR codes with tests in them
+		if case .utf8String(let tempString) = cborData["sc"] {
+			scString = tempString
+		} else if case .tagged(_, let tempValue) = cborData["sc"], case .utf8String(let tempString) = tempValue {
+			scString = tempString
+		} else {
+			throw EUGreenCertificate.EUGreenCertificateErrors.invalidPayload
+		}
+
 
 		tg = tgString
 		diseaseAgent = DiseaseAgent(rawValue: tg) ?? .unknown
@@ -72,12 +85,6 @@ public struct EUGreenCertificateTest {
 		}
 		testCenter = tc
 
-		let dateFormatter = DateFormatter()
-		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-		guard let tempDate = dateFormatter.date(from: sc) else {
-			throw EUGreenCertificate.EUGreenCertificateErrors.invalidDateFormat
-		}
-		sampleCollected = tempDate
+		sampleCollected = try euDate(from: sc)
 	}
 }

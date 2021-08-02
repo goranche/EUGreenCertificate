@@ -9,20 +9,20 @@
 import Foundation
 import SwiftCBOR
 
-public struct EUGreenCertificateRecovery {
+public struct EUGreenCertificateRecovery: EUGreenCertificateDate {
 
 	public let tg: String
 	public let diseaseAgent: DiseaseAgent
 	public let fr: String
-	public let firstPositiveTest: Date
+	private (set) public var firstPositiveTest: Date = Date()
 	public let co: String
 	public let countryOfTest: CountryCode
 	public let `is`: String
 	public let certificateIssuer: String
 	public let df: String
-	public let certificateValidFrom: Date
+	private (set) public var certificateValidFrom: Date = Date()
 	public let du: String
-	public let certificateValidTill: Date
+	private (set) public var certificateValidTill: Date = Date()
 	public let ci: String
 	public let certificateId: String
 
@@ -43,14 +43,8 @@ public struct EUGreenCertificateRecovery {
 		ci = ciString
 		certificateId = ci
 
-		let dateFormatter = DateFormatter()
-		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-		dateFormatter.dateFormat = "yyyy-MM-dd"
-		guard let first = dateFormatter.date(from: fr), let from = dateFormatter.date(from: df), let till = dateFormatter.date(from: du) else {
-			throw EUGreenCertificate.EUGreenCertificateErrors.invalidDateFormat
-		}
-		firstPositiveTest = first
-		certificateValidFrom = from
-		certificateValidTill = till
+		firstPositiveTest = try euDate(from: fr)
+		certificateValidFrom = try euDate(from: df)
+		certificateValidTill = try euDate(from: du)
 	}
 }
