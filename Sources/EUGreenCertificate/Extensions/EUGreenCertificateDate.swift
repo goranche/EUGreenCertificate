@@ -28,7 +28,14 @@ extension EUGreenCertificateDate {
 			return date
 		}
 
+		// Rare case, for SI
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZZZZZ"
+		if let date = dateFormatter.date(from: from) {
+			return date
+		}
+
+		// Rare case, for ES
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 		if let date = dateFormatter.date(from: from) {
 			return date
 		}

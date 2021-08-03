@@ -70,28 +70,59 @@ public struct EUGreenCertificate {
 	public let recovery: EUGreenCertificateRecovery?
 
 	init(_ cborData: CBOR) throws {
-		guard case .tagged(let tag, let valueArray) = cborData, tag == CBOR.Tag(rawValue: 18) else {
+		// There are ES cases where the root data is not a tagged element 🤦‍♂️
+		let valueArray: CBOR
+		if case .tagged(let tag, let tempValueArray) = cborData, tag == CBOR.Tag(rawValue: 18) {
+			valueArray = tempValueArray
+		} else if case .array(_) = cborData {
+			valueArray = cborData
+		} else {
 			throw EUGreenCertificateErrors.invalidPayload
 		}
 
-		guard case .byteString(let signatureByteString) = valueArray[0], let signatureData = try CBOR.decode(signatureByteString), case .byteString(let keyIdData) = signatureData[4] else {
-			throw EUGreenCertificateErrors.invalidPayload
+		// I've found some QR codes that encode the top level data differently... have to check for that 🙈
+		// See DccQualityAssuranceParseTests, tests for SM, CZ, BG, LV (and possibly others)
+		var tempKeyIdData: Data
+		if case .map(let tempMap) = valueArray[1], tempMap.count == 0 { // Normal format
+			guard case .byteString(let signatureByteString) = valueArray[0], let signatureData = try CBOR.decode(signatureByteString), case .byteString(let keyIdData) = signatureData[4] else {
+				throw EUGreenCertificateErrors.invalidPayload
+			}
+			tempKeyIdData = Data(keyIdData)
+		} else { // Special case format
+			guard case .map(let signatureData) = valueArray[1], case .byteString(let keyIdData) = signatureData[4] else {
+				throw EUGreenCertificateErrors.invalidPayload
+			}
+			tempKeyIdData = Data(keyIdData)
 		}
 
-		self.keyIdData = Data(keyIdData)
+		self.keyIdData = tempKeyIdData
 
 		guard case .byteString(let payloadByteString) = valueArray[2], let payloadData = try CBOR.decode(payloadByteString) else {
 			throw EUGreenCertificateErrors.invalidPayload
 		}
 
-		guard case .unsignedInt(let issueTimestamp) = payloadData[6], case .unsignedInt(let expirationTimestamp) = payloadData[4], case .utf8String(let issuerCountry) = payloadData[1], case .map(let valueMap) = payloadData[CBOR.negativeInt(259)]?[1] else {
+		guard case .utf8String(let issuerCountry) = payloadData[1], case .map(let valueMap) = payloadData[CBOR.negativeInt(259)]?[1] else {
 			throw EUGreenCertificateErrors.invalidPayload
 		}
 
 		self.issuerCountry = CountryCode(rawValue: issuerCountry) ?? .unknown
 
-		issueDate = Date(timeIntervalSince1970: TimeInterval(issueTimestamp))
-		expirationDate = Date(timeIntervalSince1970: TimeInterval(expirationTimestamp))
+		// Some ES codes have a different timestamp format. It should be an unsignedInt,
+		// but for some reason ES SOMETIMES(!!!) uses a double 🤦‍♂️
+		if case .unsignedInt(let issueTimestamp) = payloadData[6] {
+			issueDate = Date(timeIntervalSince1970: TimeInterval(issueTimestamp))
+		} else if case .double(let issueTimestamp) = payloadData[6] {
+			issueDate = Date(timeIntervalSince1970: TimeInterval(issueTimestamp))
+		} else {
+			throw EUGreenCertificateErrors.invalidPayload
+		}
+		if case .unsignedInt(let issueTimestamp) = payloadData[4] {
+			expirationDate = Date(timeIntervalSince1970: TimeInterval(issueTimestamp))
+		} else if case .double(let issueTimestamp) = payloadData[6] {
+			expirationDate = Date(timeIntervalSince1970: TimeInterval(issueTimestamp))
+		} else {
+			throw EUGreenCertificateErrors.invalidPayload
+		}
 
 		guard case .utf8String(let dateOfBirth) = valueMap["dob"], case .utf8String(let version) = valueMap["ver"] else {
 			throw EUGreenCertificateErrors.invalidPayload
@@ -144,7 +175,7 @@ public struct EUGreenCertificate {
 	}
 
 	public static func decode(_ qrData: String) -> Result<EUGreenCertificate, EUGreenCertificateErrors> {
-		guard qrData.uppercased().hasPrefix("HC1") else {
+		guard qrData.uppercased().hasPrefix("HC1:") else {
 			return .failure(.invalidData)
 		}
 
